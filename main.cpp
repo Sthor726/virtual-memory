@@ -65,11 +65,19 @@ void page_fault_handler_random_eviction(struct page_table *pt, int page)
         }
         if (!already_allocated) {
             // No empty frames, we need to evict a page
-            int random_page = rand() % page_table_get_npages(pt);
-            while (random_page == page) {
-                random_page = rand() % page_table_get_npages(pt);
+            vector<int> pages_in_use;
+            for (int i = 0; i < page_table_get_nframes(pt); i++) {
+                int* frame = new int;
+                int* bits = new int;
+                page_table_get_entry(pt, i, frame, bits);
+                if (*bits != 0) {
+                    pages_in_use.push_back(i);
+                }
             }
-            
+
+            int random_index = std::rand() % pages_in_use.size();
+            int random_page = pages_in_use[random_index];
+
             int* replaced_page = new int;
             *replaced_page = random_page;
 
