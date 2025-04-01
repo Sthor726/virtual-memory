@@ -13,6 +13,7 @@ how to use the page table and disk interfaces.
 #include <cassert>
 #include <iostream>
 #include <string.h>
+#include <vector>
 
 using namespace std;
 
@@ -24,9 +25,12 @@ int nframes;
 
 // Pointer to disk for access from handlers
 struct disk *disk = nullptr;
+vector<bool> frames_used;
+
+
 
 // Simple handler for pages == frames
-void page_fault_handler_example(struct page_table *pt, int page)
+void page_fault_handler_random_eviction(struct page_table *pt, int page)
 {
     cout << "page fault on page #" << page << endl;
 
@@ -34,6 +38,56 @@ void page_fault_handler_example(struct page_table *pt, int page)
     cout << "Before ---------------------------" << endl;
     page_table_print(pt);
     cout << "----------------------------------" << endl;
+
+    // case for chnageing page to W
+    int * bits = new int;
+    int * framenumber = new int;
+    page_table_get_entry(pt, page, framenumber, bits);
+    if (*bits != PROT_WRITE && *bits == PROT_READ ) // making a page dirty
+    {
+        page_table_set_entry(pt, page, *framenumber, PROT_READ | PROT_WRITE);
+    } else if (*bits != PROT_READ) { // if the page needs to be alloced in Physcial mem
+        // we need at add this to the page table 
+        //check if frames are available
+        bool already_allocated = false;
+
+        for (int i = 0; i < nframes; i++) {
+            if (frames_used[i] == false) {
+                // Found an empty frame
+                frames_used[i] = true;
+                
+                disk_read(disk, page, page_table_get_physmem(pt) + (i * PAGE_SIZE));
+                page_table_set_entry(pt, page, i, PROT_READ);
+                already_allocated = true;
+                break;
+            }
+        }
+        if (!already_allocated) {
+            // No empty frames, we need to evict a page
+            int random_page = rand() % page_table_get_npages(pt);
+            int* replaced_page = new int;
+            *replaced_page = random_page;
+
+            int* replaced_page_bits = new int;
+            int* replaced_frame = new int;
+            page_table_get_entry(pt, random_page, replaced_frame, replaced_page_bits);
+
+            if (*replaced_page_bits == PROT_WRITE){
+                // Replaced page is dirty, we need to write it to the disk before replacing
+                disk_write(disk, *replaced_page, page_table_get_physmem(pt) + (*replaced_frame * PAGE_SIZE));
+                disk_read(disk, page, page_table_get_physmem(pt) + (*framenumber * PAGE_SIZE));
+                page_table_set_entry(pt, page, *replaced_frame, PROT_READ);
+                page_table_set_entry(pt, *replaced_page, *replaced_frame, 0);
+            } else{
+                // Replaced page is clean, we can just replace it
+                disk_read(disk, page, page_table_get_physmem(pt) + (*framenumber * PAGE_SIZE));
+                page_table_set_entry(pt, *replaced_page, *replaced_frame, 0);
+                page_table_set_entry(pt, page, *framenumber, PROT_READ);
+            }
+        }
+    }
+
+
 
     // Map the page to the same frame number and set to read/write
     // TODO - Disable exit and enable page table update for example
@@ -99,6 +153,9 @@ int main(int argc, char *argv[])
     }
 
     // TODO - Any init needed
+    frames_used.resize(nframes, false);
+
+
 
     // Create a virtual disk
     disk = disk_open("myvirtualdisk", npages);
@@ -109,7 +166,7 @@ int main(int argc, char *argv[])
     }
 
     // Create a page table
-    struct page_table *pt = page_table_create(npages, nframes, page_fault_handler_example /* TODO - Replace with your handler(s)*/);
+    struct page_table *pt = page_table_create(npages, nframes, page_fault_handler_random_eviction /* TODO - Replace with your handler(s)*/);
     if (!pt)
     {
         cerr << "ERROR: Couldn't create page table: " << strerror(errno) << endl;
