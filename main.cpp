@@ -29,7 +29,7 @@ vector<bool> frames_used;
 
 
 
-// Simple handler for pages == frames
+// Handler with random choice of eviction
 void page_fault_handler_random_eviction(struct page_table *pt, int page)
 {
     cout << "page fault on page #" << page << endl;
@@ -40,10 +40,10 @@ void page_fault_handler_random_eviction(struct page_table *pt, int page)
     cout << "----------------------------------" << endl;
 
     // case for chnageing page to W
-    int * bits = new int;
-    int * framenumber = new int;
+    int* bits = new int;
+    int* framenumber = new int;
     page_table_get_entry(pt, page, framenumber, bits);
-    if (*bits != PROT_WRITE && *bits == PROT_READ ) // making a page dirty
+    if (*bits == PROT_READ ) // making a page dirty
     {
         std::cout << "Page is read only, changing to read/write" << endl;
         page_table_set_entry(pt, page, *framenumber, PROT_READ | PROT_WRITE);
@@ -56,7 +56,6 @@ void page_fault_handler_random_eviction(struct page_table *pt, int page)
             if (frames_used[i] == false) {
                 // Found an empty frame
                 frames_used[i] = true;
-                
                 disk_read(disk, page, page_table_get_physmem(pt) + (i * PAGE_SIZE));
                 page_table_set_entry(pt, page, i, PROT_READ);
                 already_allocated = true;
@@ -66,7 +65,7 @@ void page_fault_handler_random_eviction(struct page_table *pt, int page)
         if (!already_allocated) {
             // No empty frames, we need to evict a page
             vector<int> pages_in_use;
-            for (int i = 0; i < page_table_get_nframes(pt); i++) {
+            for (int i = 0; i < page_table_get_npages(pt); i++) {
                 int* frame = new int;
                 int* bits = new int;
                 page_table_get_entry(pt, i, frame, bits);
@@ -83,25 +82,21 @@ void page_fault_handler_random_eviction(struct page_table *pt, int page)
 
             int* replaced_page_bits = new int;
             int* replaced_frame = new int;
+
             page_table_get_entry(pt, random_page, replaced_frame, replaced_page_bits);
 
-            if (*replaced_page_bits == PROT_WRITE){
+            if (*replaced_page_bits & PROT_WRITE){
                 // Replaced page is dirty, we need to write it to the disk before replacing
                 disk_write(disk, *replaced_page, page_table_get_physmem(pt) + (*replaced_frame * PAGE_SIZE));
-                disk_read(disk, page, page_table_get_physmem(pt) + (*framenumber * PAGE_SIZE));
-                page_table_set_entry(pt, page, *replaced_frame, PROT_READ);
-                page_table_set_entry(pt, *replaced_page, *replaced_frame, 0);
-            } else{
-                // Replaced page is clean, we can just replace it
-                disk_read(disk, page, page_table_get_physmem(pt) + (*framenumber * PAGE_SIZE));
-                page_table_set_entry(pt, *replaced_page, *replaced_frame, 0);
-                page_table_set_entry(pt, page, *replaced_frame, PROT_READ);
-            }
+            } 
+            // Replaced page is clean, we can just replace it
+            disk_read(disk, page, page_table_get_physmem(pt) + (*replaced_frame * PAGE_SIZE));
+            page_table_set_entry(pt, *replaced_page, *framenumber, PROT_NONE);
+
+            page_table_set_entry(pt, page, *replaced_frame, PROT_READ);
+            //frames_used[*replaced_frame] = true;
         }
     }
-
-
-
 
     // Print the page table contents
     cout << "After ----------------------------" << endl;
@@ -109,7 +104,26 @@ void page_fault_handler_random_eviction(struct page_table *pt, int page)
     cout << "----------------------------------" << endl;
 }
 
-// TODO - Handler(s) and page eviction algorithms
+// Handler with FIFO eviction
+void page_fault_handler_fifo_eviction(struct page_table *pt, int page)
+{
+    cout << "page fault on page #" << page << endl;
+
+    // Print the page table contents
+    cout << "Before ---------------------------" << endl;
+    page_table_print(pt);
+    cout << "----------------------------------" << endl;
+
+    // TODO - Implement FIFO eviction
+
+    // Print the page table contents
+    cout << "After ----------------------------" << endl;
+    page_table_print(pt);
+    cout << "----------------------------------" << endl;
+}
+
+
+// TODO Handler with custom eviction
 
 int main(int argc, char *argv[])
 {
