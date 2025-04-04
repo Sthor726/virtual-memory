@@ -14,6 +14,7 @@ how to use the page table and disk interfaces.
 #include <iostream>
 #include <string.h>
 #include <vector>
+#include <queue>
 
 using namespace std;
 
@@ -27,11 +28,10 @@ int nframes;
 struct disk *disk = nullptr;
 vector<bool> frames_used;
 
-
+queue <int> fifo_queue; // FIFO queue for page replacement
 
 // Handler with random choice of eviction
-void page_fault_handler_random_eviction(struct page_table *pt, int page)
-{
+void page_fault_handler_random_eviction(struct page_table *pt, int page) {
     cout << "page fault on page #" << page << endl;
 
     // Print the page table contents
@@ -107,9 +107,10 @@ void page_fault_handler_random_eviction(struct page_table *pt, int page)
     cout << "----------------------------------" << endl;
 }
 
-// Handler with FIFO eviction
-void page_fault_handler_fifo_eviction(struct page_table *pt, int page)
-{
+
+// Handler with random choice of eviction
+void page_fault_handler_fifo_eviction(struct page_table *pt, int page) {
+    std::cout << fifo_queue.size() << " pages in the queue" << endl;
     cout << "page fault on page #" << page << endl;
 
     // Print the page table contents
@@ -117,13 +118,64 @@ void page_fault_handler_fifo_eviction(struct page_table *pt, int page)
     page_table_print(pt);
     cout << "----------------------------------" << endl;
 
-    // TODO - Implement FIFO eviction
+    // case for chnageing page to W
+    int* bits = new int;
+    int* framenumber = new int;
+    page_table_get_entry(pt, page, framenumber, bits);
+    if (*bits == PROT_READ ) // making a page dirty
+    {
+        std::cout << "Page is read only, changing to read/write" << endl;
+        page_table_set_entry(pt, page, *framenumber, PROT_READ | PROT_WRITE);
+    } else if (*bits != PROT_READ) { // if the page needs to be alloced in Physcial mem
+        // we need at add this to the page table 
+        //check if frames are available
+        bool already_allocated = false;
+
+        for (int i = 0; i < nframes; i++) {
+            if (frames_used[i] == false) {
+                // Found an empty frame
+                frames_used[i] = true;
+                fifo_queue.push(i);
+                disk_read(disk, page, page_table_get_physmem(pt) + (i * PAGE_SIZE));
+                page_table_set_entry(pt, page, i, PROT_READ);
+                already_allocated = true;
+                break;
+            }
+        }
+        if (!already_allocated) {
+           
+
+            int* replaced_page = new int;
+            *replaced_page = fifo_queue.front();
+            fifo_queue.pop();
+
+            int* replaced_page_bits = new int;
+            int* replaced_frame = new int;
+
+            page_table_get_entry(pt, *replaced_page, replaced_frame, replaced_page_bits);
+
+            if (*replaced_page_bits & PROT_WRITE){
+                // Replaced page is dirty, we need to write it to the disk before replacing
+                disk_write(disk, *replaced_page, page_table_get_physmem(pt) + (*replaced_frame * PAGE_SIZE));
+            } 
+            // Replaced page is clean, we can just replace it
+            disk_read(disk, page, page_table_get_physmem(pt) + (*replaced_frame * PAGE_SIZE));
+            page_table_set_entry(pt, *replaced_page, *framenumber, PROT_NONE);
+
+            page_table_set_entry(pt, page, *replaced_frame, PROT_READ);
+            //frames_used[*replaced_frame] = true;
+
+            fifo_queue.push(*replaced_page);
+        }
+    }
 
     // Print the page table contents
     cout << "After ----------------------------" << endl;
     page_table_print(pt);
     cout << "----------------------------------" << endl;
 }
+
+
 
 
 // TODO Handler with custom eviction
@@ -192,7 +244,23 @@ int main(int argc, char *argv[])
     }
 
     // Create a page table
-    struct page_table *pt = page_table_create(npages, nframes, page_fault_handler_random_eviction /* TODO - Replace with your handler(s)*/);
+    page_fault_handler_t page_fault_handler = NULL;
+
+    if (strcmp(algorithm, "rand") == 0)
+    {
+        page_fault_handler = page_fault_handler_random_eviction;
+    }
+    else if (strcmp(algorithm, "fifo") == 0)
+    {
+        page_fault_handler = page_fault_handler_fifo_eviction;
+    }
+    else if (strcmp(algorithm, "custom") == 0)
+    {
+        
+        page_fault_handler = page_fault_handler_fifo_eviction;
+    }
+
+    struct page_table *pt = page_table_create(npages, nframes, page_fault_handler /* TODO - Replace with your handler(s)*/);
     if (!pt)
     {
         cerr << "ERROR: Couldn't create page table: " << strerror(errno) << endl;
