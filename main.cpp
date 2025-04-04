@@ -15,6 +15,8 @@ how to use the page table and disk interfaces.
 #include <string.h>
 #include <vector>
 #include <queue>
+#include <stack>
+#include <algorithm>
 
 using namespace std;
 
@@ -29,6 +31,7 @@ struct disk *disk = nullptr;
 vector<bool> frames_used;
 
 queue <int> fifo_queue; // FIFO queue for page replacement
+vector <int> no_write;
 
 // Handler with random choice of eviction
 void page_fault_handler_random_eviction(struct page_table *pt, int page) {
@@ -110,7 +113,6 @@ void page_fault_handler_random_eviction(struct page_table *pt, int page) {
 
 // Handler with random choice of eviction
 void page_fault_handler_fifo_eviction(struct page_table *pt, int page) {
-    std::cout << fifo_queue.size() << " pages in the queue" << endl;
     cout << "page fault on page #" << page << endl;
 
     // Print the page table contents
@@ -135,7 +137,7 @@ void page_fault_handler_fifo_eviction(struct page_table *pt, int page) {
             if (frames_used[i] == false) {
                 // Found an empty frame
                 frames_used[i] = true;
-                fifo_queue.push(i);
+                fifo_queue.push(page);
                 disk_read(disk, page, page_table_get_physmem(pt) + (i * PAGE_SIZE));
                 page_table_set_entry(pt, page, i, PROT_READ);
                 already_allocated = true;
@@ -164,8 +166,9 @@ void page_fault_handler_fifo_eviction(struct page_table *pt, int page) {
 
             page_table_set_entry(pt, page, *replaced_frame, PROT_READ);
             //frames_used[*replaced_frame] = true;
-
-            fifo_queue.push(*replaced_page);
+            
+            
+            fifo_queue.push(page);
         }
     }
 
@@ -176,6 +179,99 @@ void page_fault_handler_fifo_eviction(struct page_table *pt, int page) {
 }
 
 
+
+void page_fault_handler_custom_eviction(struct page_table *pt, int page) {
+    cout << "page fault on page #" << page << endl;
+
+    // Print the page table contents
+    cout << "Before ---------------------------" << endl;
+    page_table_print(pt);
+    cout << "----------------------------------" << endl;
+
+    // case for chnageing page to W
+    int* bits = new int;
+    int* framenumber = new int;
+    page_table_get_entry(pt, page, framenumber, bits);
+    if (*bits == PROT_READ ) // making a page dirty
+    {
+        std::cout << "Page is read only, changing to read/write" << endl;
+        page_table_set_entry(pt, page, *framenumber, PROT_READ | PROT_WRITE);
+        auto it = std::find(no_write.begin(), no_write.end(), page);
+        if (it != no_write.end()) {
+            no_write.erase(it);
+        }
+    } else if (*bits != PROT_READ) { // if the page needs to be alloced in Physcial mem
+        // we need at add this to the page table 
+        //check if frames are available
+        bool already_allocated = false;
+
+        for (int i = 0; i < nframes; i++) {
+            if (frames_used[i] == false) {
+                // Found an empty frame
+                frames_used[i] = true;
+                disk_read(disk, page, page_table_get_physmem(pt) + (i * PAGE_SIZE));
+                no_write.push_back(page);
+                page_table_set_entry(pt, page, i, PROT_READ);
+                already_allocated = true;
+                break;
+            }
+        }
+        if (!already_allocated) {
+            // No empty frames, we need to evict a page
+            vector<int> pages_in_use;
+            for (int i = 0; i < page_table_get_npages(pt); i++) {
+                int* frame = new int;
+                int* bits = new int;
+                page_table_get_entry(pt, i, frame, bits);
+                if (*bits != 0) {
+                    pages_in_use.push_back(i);
+                }
+            }
+            if (pages_in_use.empty()) {
+                cerr << "ERROR: No pages in use to evict" << endl;
+                exit(1);
+            }
+            int replaced_page_number;
+            if (no_write.empty()) {
+                int random_index = std::rand() % pages_in_use.size();
+                replaced_page_number = pages_in_use[random_index];
+            }
+            else {
+                // we have a page with only read permsions 
+                replaced_page_number = no_write.back();
+                no_write.pop_back();
+            }
+
+            int* replaced_page = new int;
+            *replaced_page = replaced_page_number;
+
+            int* replaced_page_bits = new int;
+            int* replaced_frame = new int;
+
+            page_table_get_entry(pt, *replaced_page, replaced_frame, replaced_page_bits);
+
+            if (*replaced_page_bits & PROT_WRITE){
+                // Replaced page is dirty, we need to write it to the disk before replacing
+                disk_write(disk, *replaced_page, page_table_get_physmem(pt) + (*replaced_frame * PAGE_SIZE));
+            } 
+            // Replaced page is clean, we can just replace it
+            disk_read(disk, page, page_table_get_physmem(pt) + (*replaced_frame * PAGE_SIZE));
+            page_table_set_entry(pt, *replaced_page, *framenumber, PROT_NONE);
+
+            page_table_set_entry(pt, page, *replaced_frame, PROT_READ);
+            //frames_used[*replaced_frame] = true;
+            auto it = std::find(no_write.begin(), no_write.end(), *replaced_page);
+            if (it != no_write.end()) {
+                no_write.erase(it);
+            }
+        }
+    }
+
+    // Print the page table contents
+    cout << "After ----------------------------" << endl;
+    page_table_print(pt);
+    cout << "----------------------------------" << endl;
+}
 
 
 // TODO Handler with custom eviction
@@ -257,7 +353,7 @@ int main(int argc, char *argv[])
     else if (strcmp(algorithm, "custom") == 0)
     {
         
-        page_fault_handler = page_fault_handler_fifo_eviction;
+        page_fault_handler = page_fault_handler_custom_eviction;
     }
 
     struct page_table *pt = page_table_create(npages, nframes, page_fault_handler /* TODO - Replace with your handler(s)*/);
