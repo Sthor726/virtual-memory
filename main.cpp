@@ -33,6 +33,10 @@ vector<bool> frames_used;
 queue <int> fifo_queue; // FIFO queue for page replacement
 vector <int> no_write;
 
+int total_page_faults;
+int total_disk_writes;
+int total_disk_reads;
+
 // Handler with random choice of eviction
 void page_fault_handler_random_eviction(struct page_table *pt, int page) {
     cout << "page fault on page #" << page << endl;
@@ -51,6 +55,7 @@ void page_fault_handler_random_eviction(struct page_table *pt, int page) {
         std::cout << "Page is read only, changing to read/write" << endl;
         page_table_set_entry(pt, page, *framenumber, PROT_READ | PROT_WRITE);
     } else if (*bits != PROT_READ) { // if the page needs to be alloced in Physcial mem
+        total_page_faults++;
         // we need at add this to the page table 
         //check if frames are available
         bool already_allocated = false;
@@ -60,6 +65,7 @@ void page_fault_handler_random_eviction(struct page_table *pt, int page) {
                 // Found an empty frame
                 frames_used[i] = true;
                 disk_read(disk, page, page_table_get_physmem(pt) + (i * PAGE_SIZE));
+                total_disk_reads++;
                 page_table_set_entry(pt, page, i, PROT_READ);
                 already_allocated = true;
                 break;
@@ -94,9 +100,11 @@ void page_fault_handler_random_eviction(struct page_table *pt, int page) {
             if (*replaced_page_bits & PROT_WRITE){
                 // Replaced page is dirty, we need to write it to the disk before replacing
                 disk_write(disk, *replaced_page, page_table_get_physmem(pt) + (*replaced_frame * PAGE_SIZE));
+                total_disk_writes++;
             } 
             // Replaced page is clean, we can just replace it
             disk_read(disk, page, page_table_get_physmem(pt) + (*replaced_frame * PAGE_SIZE));
+            total_disk_reads++;
             page_table_set_entry(pt, *replaced_page, *framenumber, PROT_NONE);
 
             page_table_set_entry(pt, page, *replaced_frame, PROT_READ);
@@ -129,6 +137,7 @@ void page_fault_handler_fifo_eviction(struct page_table *pt, int page) {
         std::cout << "Page is read only, changing to read/write" << endl;
         page_table_set_entry(pt, page, *framenumber, PROT_READ | PROT_WRITE);
     } else if (*bits != PROT_READ) { // if the page needs to be alloced in Physcial mem
+        total_page_faults++;
         // we need at add this to the page table 
         //check if frames are available
         bool already_allocated = false;
@@ -139,6 +148,7 @@ void page_fault_handler_fifo_eviction(struct page_table *pt, int page) {
                 frames_used[i] = true;
                 fifo_queue.push(page);
                 disk_read(disk, page, page_table_get_physmem(pt) + (i * PAGE_SIZE));
+                total_disk_reads++;
                 page_table_set_entry(pt, page, i, PROT_READ);
                 already_allocated = true;
                 break;
@@ -159,9 +169,11 @@ void page_fault_handler_fifo_eviction(struct page_table *pt, int page) {
             if (*replaced_page_bits & PROT_WRITE){
                 // Replaced page is dirty, we need to write it to the disk before replacing
                 disk_write(disk, *replaced_page, page_table_get_physmem(pt) + (*replaced_frame * PAGE_SIZE));
+                total_disk_writes++;
             } 
             // Replaced page is clean, we can just replace it
             disk_read(disk, page, page_table_get_physmem(pt) + (*replaced_frame * PAGE_SIZE));
+            total_disk_reads++;
             page_table_set_entry(pt, *replaced_page, *framenumber, PROT_NONE);
 
             page_table_set_entry(pt, page, *replaced_frame, PROT_READ);
@@ -202,6 +214,7 @@ void page_fault_handler_custom_eviction(struct page_table *pt, int page) {
         }
     } else if (*bits != PROT_READ) { // if the page needs to be alloced in Physcial mem
         // we need at add this to the page table 
+        total_page_faults++;
         //check if frames are available
         bool already_allocated = false;
 
@@ -210,6 +223,7 @@ void page_fault_handler_custom_eviction(struct page_table *pt, int page) {
                 // Found an empty frame
                 frames_used[i] = true;
                 disk_read(disk, page, page_table_get_physmem(pt) + (i * PAGE_SIZE));
+                total_disk_reads++;
                 no_write.push_back(page);
                 page_table_set_entry(pt, page, i, PROT_READ);
                 already_allocated = true;
@@ -253,9 +267,11 @@ void page_fault_handler_custom_eviction(struct page_table *pt, int page) {
             if (*replaced_page_bits & PROT_WRITE){
                 // Replaced page is dirty, we need to write it to the disk before replacing
                 disk_write(disk, *replaced_page, page_table_get_physmem(pt) + (*replaced_frame * PAGE_SIZE));
+                total_disk_writes++;
             } 
             // Replaced page is clean, we can just replace it
             disk_read(disk, page, page_table_get_physmem(pt) + (*replaced_frame * PAGE_SIZE));
+            total_disk_reads++;
             page_table_set_entry(pt, *replaced_page, *framenumber, PROT_NONE);
 
             page_table_set_entry(pt, page, *replaced_frame, PROT_READ);
@@ -290,6 +306,9 @@ int main(int argc, char *argv[])
     nframes = atoi(argv[2]);
     const char *algorithm = argv[3];
     const char *program_name = argv[4];
+    total_page_faults = 0;
+    total_disk_writes = 0;
+    total_disk_reads = 0;
 
     // Validate the algorithm specified
     if ((strcmp(algorithm, "rand") != 0) &&
@@ -366,7 +385,9 @@ int main(int argc, char *argv[])
     // Run the specified program
     char *virtmem = page_table_get_virtmem(pt);
     program(virtmem, npages * PAGE_SIZE);
-
+    std::cout << "Total page faults: " << total_page_faults << endl;
+    std::cout << "Total disk writes: " << total_disk_writes << endl;
+    std::cout << "Total disk reads: " << total_disk_reads << endl;
     // Clean up the page table and disk
     page_table_delete(pt);
     disk_close(disk);

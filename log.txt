@@ -2261,3 +2261,4 @@ page 000008: frame 000002 bits r--
 page 000009: frame 000003 bits r--
 ----------------------------------
 Sort Successful: Result = -51407
+Total page faults: 52
