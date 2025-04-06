@@ -269,10 +269,10 @@ page 000009: frame 000000 bits ---
 After ----------------------------
 page 000000: frame 000000 bits rw-
 page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits ---
+page 000002: frame 000002 bits rw-
 page 000003: frame 000003 bits rw-
 page 000004: frame 000004 bits rw-
-page 000005: frame 000002 bits r--
+page 000005: frame 000005 bits r--
 page 000006: frame 000000 bits ---
 page 000007: frame 000000 bits ---
 page 000008: frame 000000 bits ---
@@ -282,10 +282,10 @@ page fault on page #5
 Before ---------------------------
 page 000000: frame 000000 bits rw-
 page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits ---
+page 000002: frame 000002 bits rw-
 page 000003: frame 000003 bits rw-
 page 000004: frame 000004 bits rw-
-page 000005: frame 000002 bits r--
+page 000005: frame 000005 bits r--
 page 000006: frame 000000 bits ---
 page 000007: frame 000000 bits ---
 page 000008: frame 000000 bits ---
@@ -295,10 +295,10 @@ Page is read only, changing to read/write
 After ----------------------------
 page 000000: frame 000000 bits rw-
 page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits ---
+page 000002: frame 000002 bits rw-
 page 000003: frame 000003 bits rw-
 page 000004: frame 000004 bits rw-
-page 000005: frame 000002 bits rw-
+page 000005: frame 000005 bits rw-
 page 000006: frame 000000 bits ---
 page 000007: frame 000000 bits ---
 page 000008: frame 000000 bits ---
@@ -308,10 +308,10 @@ page fault on page #6
 Before ---------------------------
 page 000000: frame 000000 bits rw-
 page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits ---
+page 000002: frame 000002 bits rw-
 page 000003: frame 000003 bits rw-
 page 000004: frame 000004 bits rw-
-page 000005: frame 000002 bits rw-
+page 000005: frame 000005 bits rw-
 page 000006: frame 000000 bits ---
 page 000007: frame 000000 bits ---
 page 000008: frame 000000 bits ---
@@ -320,11 +320,11 @@ page 000009: frame 000000 bits ---
 After ----------------------------
 page 000000: frame 000000 bits rw-
 page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits ---
+page 000002: frame 000002 bits rw-
+page 000003: frame 000003 bits rw-
 page 000004: frame 000004 bits rw-
-page 000005: frame 000002 bits rw-
-page 000006: frame 000003 bits r--
+page 000005: frame 000005 bits rw-
+page 000006: frame 000006 bits r--
 page 000007: frame 000000 bits ---
 page 000008: frame 000000 bits ---
 page 000009: frame 000000 bits ---
@@ -333,11 +333,11 @@ page fault on page #6
 Before ---------------------------
 page 000000: frame 000000 bits rw-
 page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits ---
+page 000002: frame 000002 bits rw-
+page 000003: frame 000003 bits rw-
 page 000004: frame 000004 bits rw-
-page 000005: frame 000002 bits rw-
-page 000006: frame 000003 bits r--
+page 000005: frame 000005 bits rw-
+page 000006: frame 000006 bits r--
 page 000007: frame 000000 bits ---
 page 000008: frame 000000 bits ---
 page 000009: frame 000000 bits ---
@@ -346,11 +346,11 @@ Page is read only, changing to read/write
 After ----------------------------
 page 000000: frame 000000 bits rw-
 page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits ---
+page 000002: frame 000002 bits rw-
+page 000003: frame 000003 bits rw-
 page 000004: frame 000004 bits rw-
-page 000005: frame 000002 bits rw-
-page 000006: frame 000003 bits rw-
+page 000005: frame 000005 bits rw-
+page 000006: frame 000006 bits rw-
 page 000007: frame 000000 bits ---
 page 000008: frame 000000 bits ---
 page 000009: frame 000000 bits ---
@@ -359,840 +359,25 @@ page fault on page #7
 Before ---------------------------
 page 000000: frame 000000 bits rw-
 page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits ---
-page 000004: frame 000004 bits rw-
-page 000005: frame 000002 bits rw-
-page 000006: frame 000003 bits rw-
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-After ----------------------------
-page 000000: frame 000000 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000003 bits rw-
-page 000007: frame 000004 bits r--
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-page fault on page #7
-Before ---------------------------
-page 000000: frame 000000 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000003 bits rw-
-page 000007: frame 000004 bits r--
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-Page is read only, changing to read/write
-After ----------------------------
-page 000000: frame 000000 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000003 bits rw-
-page 000007: frame 000004 bits rw-
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-page fault on page #8
-Before ---------------------------
-page 000000: frame 000000 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000003 bits rw-
-page 000007: frame 000004 bits rw-
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-After ----------------------------
-page 000000: frame 000000 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000003 bits rw-
-page 000007: frame 000000 bits ---
-page 000008: frame 000004 bits r--
-page 000009: frame 000000 bits ---
-----------------------------------
-page fault on page #8
-Before ---------------------------
-page 000000: frame 000000 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000003 bits rw-
-page 000007: frame 000000 bits ---
-page 000008: frame 000004 bits r--
-page 000009: frame 000000 bits ---
-----------------------------------
-Page is read only, changing to read/write
-After ----------------------------
-page 000000: frame 000000 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000003 bits rw-
-page 000007: frame 000000 bits ---
-page 000008: frame 000004 bits rw-
-page 000009: frame 000000 bits ---
-----------------------------------
-page fault on page #9
-Before ---------------------------
-page 000000: frame 000000 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000003 bits rw-
-page 000007: frame 000000 bits ---
-page 000008: frame 000004 bits rw-
-page 000009: frame 000000 bits ---
-----------------------------------
-After ----------------------------
-page 000000: frame 000000 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000004 bits rw-
-page 000009: frame 000003 bits r--
-----------------------------------
-page fault on page #9
-Before ---------------------------
-page 000000: frame 000000 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000004 bits rw-
-page 000009: frame 000003 bits r--
-----------------------------------
-Page is read only, changing to read/write
-After ----------------------------
-page 000000: frame 000000 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000004 bits rw-
-page 000009: frame 000003 bits rw-
-----------------------------------
-page fault on page #2
-Before ---------------------------
-page 000000: frame 000000 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000004 bits rw-
-page 000009: frame 000003 bits rw-
-----------------------------------
-After ----------------------------
-page 000000: frame 000000 bits rw-
-page 000001: frame 000000 bits ---
-page 000002: frame 000001 bits r--
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000004 bits rw-
-page 000009: frame 000003 bits rw-
-----------------------------------
-page fault on page #2
-Before ---------------------------
-page 000000: frame 000000 bits rw-
-page 000001: frame 000000 bits ---
-page 000002: frame 000001 bits r--
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000004 bits rw-
-page 000009: frame 000003 bits rw-
-----------------------------------
-Page is read only, changing to read/write
-After ----------------------------
-page 000000: frame 000000 bits rw-
-page 000001: frame 000000 bits ---
-page 000002: frame 000001 bits rw-
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000004 bits rw-
-page 000009: frame 000003 bits rw-
-----------------------------------
-page fault on page #1
-Before ---------------------------
-page 000000: frame 000000 bits rw-
-page 000001: frame 000000 bits ---
-page 000002: frame 000001 bits rw-
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000004 bits rw-
-page 000009: frame 000003 bits rw-
-----------------------------------
-After ----------------------------
-page 000000: frame 000000 bits rw-
-page 000001: frame 000002 bits r--
-page 000002: frame 000001 bits rw-
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000004 bits rw-
-page 000009: frame 000003 bits rw-
-----------------------------------
-page fault on page #1
-Before ---------------------------
-page 000000: frame 000000 bits rw-
-page 000001: frame 000002 bits r--
-page 000002: frame 000001 bits rw-
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000004 bits rw-
-page 000009: frame 000003 bits rw-
-----------------------------------
-Page is read only, changing to read/write
-After ----------------------------
-page 000000: frame 000000 bits rw-
-page 000001: frame 000002 bits rw-
-page 000002: frame 000001 bits rw-
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000004 bits rw-
-page 000009: frame 000003 bits rw-
-----------------------------------
-page fault on page #3
-Before ---------------------------
-page 000000: frame 000000 bits rw-
-page 000001: frame 000002 bits rw-
-page 000002: frame 000001 bits rw-
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000004 bits rw-
-page 000009: frame 000003 bits rw-
-----------------------------------
-After ----------------------------
-page 000000: frame 000000 bits rw-
-page 000001: frame 000002 bits rw-
-page 000002: frame 000001 bits rw-
-page 000003: frame 000004 bits r--
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-page fault on page #3
-Before ---------------------------
-page 000000: frame 000000 bits rw-
-page 000001: frame 000002 bits rw-
-page 000002: frame 000001 bits rw-
-page 000003: frame 000004 bits r--
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-Page is read only, changing to read/write
-After ----------------------------
-page 000000: frame 000000 bits rw-
-page 000001: frame 000002 bits rw-
-page 000002: frame 000001 bits rw-
-page 000003: frame 000004 bits rw-
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-page fault on page #4
-Before ---------------------------
-page 000000: frame 000000 bits rw-
-page 000001: frame 000002 bits rw-
-page 000002: frame 000001 bits rw-
-page 000003: frame 000004 bits rw-
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-After ----------------------------
-page 000000: frame 000000 bits rw-
-page 000001: frame 000002 bits rw-
-page 000002: frame 000001 bits rw-
-page 000003: frame 000000 bits ---
-page 000004: frame 000004 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-page fault on page #3
-Before ---------------------------
-page 000000: frame 000000 bits rw-
-page 000001: frame 000002 bits rw-
-page 000002: frame 000001 bits rw-
-page 000003: frame 000000 bits ---
-page 000004: frame 000004 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-After ----------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000002 bits rw-
-page 000002: frame 000001 bits rw-
-page 000003: frame 000000 bits r--
-page 000004: frame 000004 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-page fault on page #3
-Before ---------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000002 bits rw-
-page 000002: frame 000001 bits rw-
-page 000003: frame 000000 bits r--
-page 000004: frame 000004 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-Page is read only, changing to read/write
-After ----------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000002 bits rw-
-page 000002: frame 000001 bits rw-
-page 000003: frame 000000 bits rw-
-page 000004: frame 000004 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-page fault on page #4
-Before ---------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000002 bits rw-
-page 000002: frame 000001 bits rw-
-page 000003: frame 000000 bits rw-
-page 000004: frame 000004 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-Page is read only, changing to read/write
-After ----------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000002 bits rw-
-page 000002: frame 000001 bits rw-
-page 000003: frame 000000 bits rw-
-page 000004: frame 000004 bits rw-
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-page fault on page #0
-Before ---------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000002 bits rw-
-page 000002: frame 000001 bits rw-
-page 000003: frame 000000 bits rw-
-page 000004: frame 000004 bits rw-
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-After ----------------------------
-page 000000: frame 000002 bits r--
-page 000001: frame 000000 bits ---
-page 000002: frame 000001 bits rw-
-page 000003: frame 000000 bits rw-
-page 000004: frame 000004 bits rw-
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-page fault on page #1
-Before ---------------------------
-page 000000: frame 000002 bits r--
-page 000001: frame 000000 bits ---
-page 000002: frame 000001 bits rw-
-page 000003: frame 000000 bits rw-
-page 000004: frame 000004 bits rw-
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-After ----------------------------
-page 000000: frame 000002 bits r--
-page 000001: frame 000004 bits r--
-page 000002: frame 000001 bits rw-
-page 000003: frame 000000 bits rw-
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-page fault on page #4
-Before ---------------------------
-page 000000: frame 000002 bits r--
-page 000001: frame 000004 bits r--
-page 000002: frame 000001 bits rw-
-page 000003: frame 000000 bits rw-
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-After ----------------------------
-page 000000: frame 000002 bits r--
-page 000001: frame 000000 bits ---
-page 000002: frame 000001 bits rw-
-page 000003: frame 000000 bits rw-
-page 000004: frame 000004 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-page fault on page #1
-Before ---------------------------
-page 000000: frame 000002 bits r--
-page 000001: frame 000000 bits ---
-page 000002: frame 000001 bits rw-
-page 000003: frame 000000 bits rw-
-page 000004: frame 000004 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-After ----------------------------
-page 000000: frame 000002 bits r--
-page 000001: frame 000001 bits r--
-page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits rw-
-page 000004: frame 000004 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-page fault on page #2
-Before ---------------------------
-page 000000: frame 000002 bits r--
-page 000001: frame 000001 bits r--
-page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits rw-
-page 000004: frame 000004 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-After ----------------------------
-page 000000: frame 000002 bits r--
-page 000001: frame 000001 bits r--
-page 000002: frame 000000 bits r--
-page 000003: frame 000000 bits ---
-page 000004: frame 000004 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-page fault on page #0
-Before ---------------------------
-page 000000: frame 000002 bits r--
-page 000001: frame 000001 bits r--
-page 000002: frame 000000 bits r--
-page 000003: frame 000000 bits ---
-page 000004: frame 000004 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-Page is read only, changing to read/write
-After ----------------------------
-page 000000: frame 000002 bits rw-
-page 000001: frame 000001 bits r--
-page 000002: frame 000000 bits r--
-page 000003: frame 000000 bits ---
-page 000004: frame 000004 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-page fault on page #1
-Before ---------------------------
-page 000000: frame 000002 bits rw-
-page 000001: frame 000001 bits r--
-page 000002: frame 000000 bits r--
-page 000003: frame 000000 bits ---
-page 000004: frame 000004 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-Page is read only, changing to read/write
-After ----------------------------
-page 000000: frame 000002 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits r--
-page 000003: frame 000000 bits ---
-page 000004: frame 000004 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-page fault on page #2
-Before ---------------------------
-page 000000: frame 000002 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits r--
-page 000003: frame 000000 bits ---
-page 000004: frame 000004 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-Page is read only, changing to read/write
-After ----------------------------
-page 000000: frame 000002 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits rw-
-page 000003: frame 000000 bits ---
-page 000004: frame 000004 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-page fault on page #3
-Before ---------------------------
-page 000000: frame 000002 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits rw-
-page 000003: frame 000000 bits ---
-page 000004: frame 000004 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-After ----------------------------
-page 000000: frame 000002 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits rw-
-page 000003: frame 000003 bits r--
-page 000004: frame 000004 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-page fault on page #3
-Before ---------------------------
-page 000000: frame 000002 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits rw-
-page 000003: frame 000003 bits r--
-page 000004: frame 000004 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-Page is read only, changing to read/write
-After ----------------------------
-page 000000: frame 000002 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits rw-
-page 000003: frame 000003 bits rw-
-page 000004: frame 000004 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-page fault on page #4
-Before ---------------------------
-page 000000: frame 000002 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits rw-
-page 000003: frame 000003 bits rw-
-page 000004: frame 000004 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-Page is read only, changing to read/write
-After ----------------------------
-page 000000: frame 000002 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits rw-
+page 000002: frame 000002 bits rw-
 page 000003: frame 000003 bits rw-
 page 000004: frame 000004 bits rw-
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
+page 000005: frame 000005 bits rw-
+page 000006: frame 000006 bits rw-
 page 000007: frame 000000 bits ---
 page 000008: frame 000000 bits ---
 page 000009: frame 000000 bits ---
 ----------------------------------
-page fault on page #5
-Before ---------------------------
-page 000000: frame 000002 bits rw-
+Randomly selected page to evict: 0
+After ----------------------------
+page 000000: frame 000000 bits ---
 page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits rw-
+page 000002: frame 000002 bits rw-
 page 000003: frame 000003 bits rw-
 page 000004: frame 000004 bits rw-
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-After ----------------------------
-page 000000: frame 000002 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits rw-
-page 000003: frame 000003 bits rw-
-page 000004: frame 000000 bits ---
-page 000005: frame 000004 bits r--
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-page fault on page #5
-Before ---------------------------
-page 000000: frame 000002 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits rw-
-page 000003: frame 000003 bits rw-
-page 000004: frame 000000 bits ---
-page 000005: frame 000004 bits r--
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-Page is read only, changing to read/write
-After ----------------------------
-page 000000: frame 000002 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits rw-
-page 000003: frame 000003 bits rw-
-page 000004: frame 000000 bits ---
-page 000005: frame 000004 bits rw-
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-page fault on page #6
-Before ---------------------------
-page 000000: frame 000002 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits rw-
-page 000003: frame 000003 bits rw-
-page 000004: frame 000000 bits ---
-page 000005: frame 000004 bits rw-
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-After ----------------------------
-page 000000: frame 000002 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits rw-
-page 000003: frame 000003 bits rw-
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000004 bits r--
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-page fault on page #5
-Before ---------------------------
-page 000000: frame 000002 bits rw-
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits rw-
-page 000003: frame 000003 bits rw-
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000004 bits r--
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-After ----------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits rw-
-page 000003: frame 000003 bits rw-
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits r--
-page 000006: frame 000004 bits r--
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-page fault on page #5
-Before ---------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits rw-
-page 000003: frame 000003 bits rw-
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits r--
-page 000006: frame 000004 bits r--
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-Page is read only, changing to read/write
-After ----------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits rw-
-page 000003: frame 000003 bits rw-
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000004 bits r--
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-page fault on page #6
-Before ---------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits rw-
-page 000003: frame 000003 bits rw-
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000004 bits r--
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-Page is read only, changing to read/write
-After ----------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits rw-
-page 000003: frame 000003 bits rw-
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000004 bits rw-
-page 000007: frame 000000 bits ---
+page 000005: frame 000005 bits rw-
+page 000006: frame 000006 bits rw-
+page 000007: frame 000000 bits r--
 page 000008: frame 000000 bits ---
 page 000009: frame 000000 bits ---
 ----------------------------------
@@ -1200,37 +385,12 @@ page fault on page #7
 Before ---------------------------
 page 000000: frame 000000 bits ---
 page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits rw-
+page 000002: frame 000002 bits rw-
 page 000003: frame 000003 bits rw-
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000004 bits rw-
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-After ----------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits rw-
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000004 bits rw-
-page 000007: frame 000003 bits r--
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-page fault on page #7
-Before ---------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits rw-
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000004 bits rw-
-page 000007: frame 000003 bits r--
+page 000004: frame 000004 bits rw-
+page 000005: frame 000005 bits rw-
+page 000006: frame 000006 bits rw-
+page 000007: frame 000000 bits r--
 page 000008: frame 000000 bits ---
 page 000009: frame 000000 bits ---
 ----------------------------------
@@ -1238,12 +398,12 @@ Page is read only, changing to read/write
 After ----------------------------
 page 000000: frame 000000 bits ---
 page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits rw-
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000004 bits rw-
-page 000007: frame 000003 bits rw-
+page 000002: frame 000002 bits rw-
+page 000003: frame 000003 bits rw-
+page 000004: frame 000004 bits rw-
+page 000005: frame 000005 bits rw-
+page 000006: frame 000006 bits rw-
+page 000007: frame 000000 bits rw-
 page 000008: frame 000000 bits ---
 page 000009: frame 000000 bits ---
 ----------------------------------
@@ -1251,24 +411,25 @@ page fault on page #8
 Before ---------------------------
 page 000000: frame 000000 bits ---
 page 000001: frame 000001 bits rw-
-page 000002: frame 000000 bits rw-
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000004 bits rw-
-page 000007: frame 000003 bits rw-
+page 000002: frame 000002 bits rw-
+page 000003: frame 000003 bits rw-
+page 000004: frame 000004 bits rw-
+page 000005: frame 000005 bits rw-
+page 000006: frame 000006 bits rw-
+page 000007: frame 000000 bits rw-
 page 000008: frame 000000 bits ---
 page 000009: frame 000000 bits ---
 ----------------------------------
+Randomly selected page to evict: 1
 After ----------------------------
 page 000000: frame 000000 bits ---
 page 000001: frame 000000 bits ---
-page 000002: frame 000000 bits rw-
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000004 bits rw-
-page 000007: frame 000003 bits rw-
+page 000002: frame 000002 bits rw-
+page 000003: frame 000003 bits rw-
+page 000004: frame 000004 bits rw-
+page 000005: frame 000005 bits rw-
+page 000006: frame 000006 bits rw-
+page 000007: frame 000000 bits rw-
 page 000008: frame 000001 bits r--
 page 000009: frame 000000 bits ---
 ----------------------------------
@@ -1276,12 +437,12 @@ page fault on page #8
 Before ---------------------------
 page 000000: frame 000000 bits ---
 page 000001: frame 000000 bits ---
-page 000002: frame 000000 bits rw-
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000004 bits rw-
-page 000007: frame 000003 bits rw-
+page 000002: frame 000002 bits rw-
+page 000003: frame 000003 bits rw-
+page 000004: frame 000004 bits rw-
+page 000005: frame 000005 bits rw-
+page 000006: frame 000006 bits rw-
+page 000007: frame 000000 bits rw-
 page 000008: frame 000001 bits r--
 page 000009: frame 000000 bits ---
 ----------------------------------
@@ -1289,12 +450,12 @@ Page is read only, changing to read/write
 After ----------------------------
 page 000000: frame 000000 bits ---
 page 000001: frame 000000 bits ---
-page 000002: frame 000000 bits rw-
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000004 bits rw-
-page 000007: frame 000003 bits rw-
+page 000002: frame 000002 bits rw-
+page 000003: frame 000003 bits rw-
+page 000004: frame 000004 bits rw-
+page 000005: frame 000005 bits rw-
+page 000006: frame 000006 bits rw-
+page 000007: frame 000000 bits rw-
 page 000008: frame 000001 bits rw-
 page 000009: frame 000000 bits ---
 ----------------------------------
@@ -1302,963 +463,1117 @@ page fault on page #9
 Before ---------------------------
 page 000000: frame 000000 bits ---
 page 000001: frame 000000 bits ---
-page 000002: frame 000000 bits rw-
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000004 bits rw-
-page 000007: frame 000003 bits rw-
+page 000002: frame 000002 bits rw-
+page 000003: frame 000003 bits rw-
+page 000004: frame 000004 bits rw-
+page 000005: frame 000005 bits rw-
+page 000006: frame 000006 bits rw-
+page 000007: frame 000000 bits rw-
 page 000008: frame 000001 bits rw-
 page 000009: frame 000000 bits ---
 ----------------------------------
+Randomly selected page to evict: 6
 After ----------------------------
 page 000000: frame 000000 bits ---
 page 000001: frame 000000 bits ---
-page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000004 bits rw-
-page 000007: frame 000003 bits rw-
+page 000002: frame 000002 bits rw-
+page 000003: frame 000003 bits rw-
+page 000004: frame 000004 bits rw-
+page 000005: frame 000005 bits rw-
+page 000006: frame 000000 bits ---
+page 000007: frame 000000 bits rw-
 page 000008: frame 000001 bits rw-
-page 000009: frame 000000 bits r--
+page 000009: frame 000006 bits r--
 ----------------------------------
 page fault on page #9
 Before ---------------------------
 page 000000: frame 000000 bits ---
 page 000001: frame 000000 bits ---
-page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000004 bits rw-
-page 000007: frame 000003 bits rw-
+page 000002: frame 000002 bits rw-
+page 000003: frame 000003 bits rw-
+page 000004: frame 000004 bits rw-
+page 000005: frame 000005 bits rw-
+page 000006: frame 000000 bits ---
+page 000007: frame 000000 bits rw-
 page 000008: frame 000001 bits rw-
-page 000009: frame 000000 bits r--
+page 000009: frame 000006 bits r--
 ----------------------------------
 Page is read only, changing to read/write
 After ----------------------------
 page 000000: frame 000000 bits ---
 page 000001: frame 000000 bits ---
-page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000004 bits rw-
-page 000007: frame 000003 bits rw-
+page 000002: frame 000002 bits rw-
+page 000003: frame 000003 bits rw-
+page 000004: frame 000004 bits rw-
+page 000005: frame 000005 bits rw-
+page 000006: frame 000000 bits ---
+page 000007: frame 000000 bits rw-
 page 000008: frame 000001 bits rw-
-page 000009: frame 000000 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
 page fault on page #0
 Before ---------------------------
 page 000000: frame 000000 bits ---
 page 000001: frame 000000 bits ---
-page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000004 bits rw-
-page 000007: frame 000003 bits rw-
+page 000002: frame 000002 bits rw-
+page 000003: frame 000003 bits rw-
+page 000004: frame 000004 bits rw-
+page 000005: frame 000005 bits rw-
+page 000006: frame 000000 bits ---
+page 000007: frame 000000 bits rw-
 page 000008: frame 000001 bits rw-
-page 000009: frame 000000 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
+Randomly selected page to evict: 5
 After ----------------------------
-page 000000: frame 000001 bits r--
+page 000000: frame 000005 bits r--
 page 000001: frame 000000 bits ---
-page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000004 bits rw-
-page 000007: frame 000003 bits rw-
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits rw-
+page 000002: frame 000002 bits rw-
+page 000003: frame 000003 bits rw-
+page 000004: frame 000004 bits rw-
+page 000005: frame 000000 bits ---
+page 000006: frame 000000 bits ---
+page 000007: frame 000000 bits rw-
+page 000008: frame 000001 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+page fault on page #0
+Before ---------------------------
+page 000000: frame 000005 bits r--
+page 000001: frame 000000 bits ---
+page 000002: frame 000002 bits rw-
+page 000003: frame 000003 bits rw-
+page 000004: frame 000004 bits rw-
+page 000005: frame 000000 bits ---
+page 000006: frame 000000 bits ---
+page 000007: frame 000000 bits rw-
+page 000008: frame 000001 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+Page is read only, changing to read/write
+After ----------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000000 bits ---
+page 000002: frame 000002 bits rw-
+page 000003: frame 000003 bits rw-
+page 000004: frame 000004 bits rw-
+page 000005: frame 000000 bits ---
+page 000006: frame 000000 bits ---
+page 000007: frame 000000 bits rw-
+page 000008: frame 000001 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
 page fault on page #1
 Before ---------------------------
-page 000000: frame 000001 bits r--
+page 000000: frame 000005 bits rw-
 page 000001: frame 000000 bits ---
-page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000004 bits rw-
-page 000007: frame 000003 bits rw-
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits rw-
-----------------------------------
-After ----------------------------
-page 000000: frame 000001 bits r--
-page 000001: frame 000004 bits r--
-page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
+page 000002: frame 000002 bits rw-
+page 000003: frame 000003 bits rw-
+page 000004: frame 000004 bits rw-
+page 000005: frame 000000 bits ---
 page 000006: frame 000000 bits ---
-page 000007: frame 000003 bits rw-
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits rw-
+page 000007: frame 000000 bits rw-
+page 000008: frame 000001 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
-page fault on page #6
+Randomly selected page to evict: 2
+After ----------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000002 bits r--
+page 000002: frame 000000 bits ---
+page 000003: frame 000003 bits rw-
+page 000004: frame 000004 bits rw-
+page 000005: frame 000000 bits ---
+page 000006: frame 000000 bits ---
+page 000007: frame 000000 bits rw-
+page 000008: frame 000001 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+page fault on page #1
 Before ---------------------------
-page 000000: frame 000001 bits r--
-page 000001: frame 000004 bits r--
+page 000000: frame 000005 bits rw-
+page 000001: frame 000002 bits r--
 page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
+page 000003: frame 000003 bits rw-
+page 000004: frame 000004 bits rw-
+page 000005: frame 000000 bits ---
 page 000006: frame 000000 bits ---
-page 000007: frame 000003 bits rw-
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits rw-
+page 000007: frame 000000 bits rw-
+page 000008: frame 000001 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
+Page is read only, changing to read/write
 After ----------------------------
-page 000000: frame 000001 bits r--
-page 000001: frame 000004 bits r--
+page 000000: frame 000005 bits rw-
+page 000001: frame 000002 bits rw-
 page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000003 bits r--
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits rw-
+page 000003: frame 000003 bits rw-
+page 000004: frame 000004 bits rw-
+page 000005: frame 000000 bits ---
+page 000006: frame 000000 bits ---
+page 000007: frame 000000 bits rw-
+page 000008: frame 000001 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
 page fault on page #2
 Before ---------------------------
-page 000000: frame 000001 bits r--
-page 000001: frame 000004 bits r--
+page 000000: frame 000005 bits rw-
+page 000001: frame 000002 bits rw-
 page 000002: frame 000000 bits ---
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000003 bits r--
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits rw-
-----------------------------------
-After ----------------------------
-page 000000: frame 000001 bits r--
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits r--
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000003 bits r--
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits rw-
-----------------------------------
-page fault on page #7
-Before ---------------------------
-page 000000: frame 000001 bits r--
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits r--
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000003 bits r--
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits rw-
-----------------------------------
-After ----------------------------
-page 000000: frame 000001 bits r--
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits r--
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000003 bits r--
-page 000007: frame 000000 bits r--
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-page fault on page #8
-Before ---------------------------
-page 000000: frame 000001 bits r--
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits r--
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000002 bits rw-
-page 000006: frame 000003 bits r--
-page 000007: frame 000000 bits r--
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-After ----------------------------
-page 000000: frame 000001 bits r--
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits r--
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000003 bits r--
-page 000007: frame 000000 bits r--
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits ---
-----------------------------------
-page fault on page #3
-Before ---------------------------
-page 000000: frame 000001 bits r--
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits r--
-page 000003: frame 000000 bits ---
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000003 bits r--
-page 000007: frame 000000 bits r--
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits ---
-----------------------------------
-After ----------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits r--
-page 000003: frame 000001 bits r--
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000003 bits r--
-page 000007: frame 000000 bits r--
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits ---
-----------------------------------
-page fault on page #9
-Before ---------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits r--
-page 000003: frame 000001 bits r--
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000003 bits r--
-page 000007: frame 000000 bits r--
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits ---
-----------------------------------
-After ----------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits r--
-page 000003: frame 000001 bits r--
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000003 bits r--
-page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits r--
-----------------------------------
-page fault on page #4
-Before ---------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits r--
-page 000003: frame 000001 bits r--
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000003 bits r--
-page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits r--
-----------------------------------
-After ----------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits r--
-page 000003: frame 000001 bits r--
-page 000004: frame 000003 bits r--
+page 000003: frame 000003 bits rw-
+page 000004: frame 000004 bits rw-
 page 000005: frame 000000 bits ---
 page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits r--
+page 000007: frame 000000 bits rw-
+page 000008: frame 000001 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
-page fault on page #0
-Before ---------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits r--
-page 000003: frame 000001 bits r--
-page 000004: frame 000003 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits r--
-----------------------------------
+Randomly selected page to evict: 4
 After ----------------------------
-page 000000: frame 000003 bits r--
-page 000001: frame 000000 bits ---
+page 000000: frame 000005 bits rw-
+page 000001: frame 000002 bits rw-
 page 000002: frame 000004 bits r--
-page 000003: frame 000001 bits r--
+page 000003: frame 000003 bits rw-
 page 000004: frame 000000 bits ---
 page 000005: frame 000000 bits ---
 page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits r--
-----------------------------------
-page fault on page #0
-Before ---------------------------
-page 000000: frame 000003 bits r--
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits r--
-page 000003: frame 000001 bits r--
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits r--
-----------------------------------
-Page is read only, changing to read/write
-After ----------------------------
-page 000000: frame 000003 bits rw-
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits r--
-page 000003: frame 000001 bits r--
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits r--
-----------------------------------
-page fault on page #1
-Before ---------------------------
-page 000000: frame 000003 bits rw-
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits r--
-page 000003: frame 000001 bits r--
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits r--
-----------------------------------
-After ----------------------------
-page 000000: frame 000003 bits rw-
-page 000001: frame 000000 bits r--
-page 000002: frame 000004 bits r--
-page 000003: frame 000001 bits r--
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits ---
-----------------------------------
-page fault on page #1
-Before ---------------------------
-page 000000: frame 000003 bits rw-
-page 000001: frame 000000 bits r--
-page 000002: frame 000004 bits r--
-page 000003: frame 000001 bits r--
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits ---
-----------------------------------
-Page is read only, changing to read/write
-After ----------------------------
-page 000000: frame 000003 bits rw-
-page 000001: frame 000000 bits rw-
-page 000002: frame 000004 bits r--
-page 000003: frame 000001 bits r--
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits ---
+page 000007: frame 000000 bits rw-
+page 000008: frame 000001 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
 page fault on page #2
 Before ---------------------------
-page 000000: frame 000003 bits rw-
-page 000001: frame 000000 bits rw-
+page 000000: frame 000005 bits rw-
+page 000001: frame 000002 bits rw-
 page 000002: frame 000004 bits r--
-page 000003: frame 000001 bits r--
+page 000003: frame 000003 bits rw-
 page 000004: frame 000000 bits ---
 page 000005: frame 000000 bits ---
 page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits ---
+page 000007: frame 000000 bits rw-
+page 000008: frame 000001 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
 Page is read only, changing to read/write
 After ----------------------------
-page 000000: frame 000003 bits rw-
-page 000001: frame 000000 bits rw-
+page 000000: frame 000005 bits rw-
+page 000001: frame 000002 bits rw-
 page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits r--
+page 000003: frame 000003 bits rw-
 page 000004: frame 000000 bits ---
 page 000005: frame 000000 bits ---
 page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits ---
-----------------------------------
-page fault on page #3
-Before ---------------------------
-page 000000: frame 000003 bits rw-
-page 000001: frame 000000 bits rw-
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits r--
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits ---
-----------------------------------
-Page is read only, changing to read/write
-After ----------------------------
-page 000000: frame 000003 bits rw-
-page 000001: frame 000000 bits rw-
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits ---
+page 000007: frame 000000 bits rw-
+page 000008: frame 000001 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
 page fault on page #4
 Before ---------------------------
-page 000000: frame 000003 bits rw-
-page 000001: frame 000000 bits rw-
+page 000000: frame 000005 bits rw-
+page 000001: frame 000002 bits rw-
 page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
+page 000003: frame 000003 bits rw-
 page 000004: frame 000000 bits ---
 page 000005: frame 000000 bits ---
 page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits ---
+page 000007: frame 000000 bits rw-
+page 000008: frame 000001 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
+Randomly selected page to evict: 8
 After ----------------------------
-page 000000: frame 000003 bits rw-
-page 000001: frame 000000 bits ---
+page 000000: frame 000005 bits rw-
+page 000001: frame 000002 bits rw-
 page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
-page 000004: frame 000000 bits r--
+page 000003: frame 000003 bits rw-
+page 000004: frame 000001 bits r--
 page 000005: frame 000000 bits ---
 page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits ---
+page 000007: frame 000000 bits rw-
+page 000008: frame 000000 bits ---
+page 000009: frame 000006 bits rw-
 ----------------------------------
 page fault on page #4
 Before ---------------------------
-page 000000: frame 000003 bits rw-
-page 000001: frame 000000 bits ---
+page 000000: frame 000005 bits rw-
+page 000001: frame 000002 bits rw-
 page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
-page 000004: frame 000000 bits r--
+page 000003: frame 000003 bits rw-
+page 000004: frame 000001 bits r--
 page 000005: frame 000000 bits ---
 page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits ---
+page 000007: frame 000000 bits rw-
+page 000008: frame 000000 bits ---
+page 000009: frame 000006 bits rw-
 ----------------------------------
 Page is read only, changing to read/write
 After ----------------------------
-page 000000: frame 000003 bits rw-
-page 000001: frame 000000 bits ---
+page 000000: frame 000005 bits rw-
+page 000001: frame 000002 bits rw-
 page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
-page 000004: frame 000000 bits rw-
+page 000003: frame 000003 bits rw-
+page 000004: frame 000001 bits rw-
 page 000005: frame 000000 bits ---
 page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits ---
+page 000007: frame 000000 bits rw-
+page 000008: frame 000000 bits ---
+page 000009: frame 000006 bits rw-
 ----------------------------------
 page fault on page #5
 Before ---------------------------
-page 000000: frame 000003 bits rw-
-page 000001: frame 000000 bits ---
+page 000000: frame 000005 bits rw-
+page 000001: frame 000002 bits rw-
 page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
+page 000003: frame 000003 bits rw-
+page 000004: frame 000001 bits rw-
+page 000005: frame 000000 bits ---
+page 000006: frame 000000 bits ---
+page 000007: frame 000000 bits rw-
+page 000008: frame 000000 bits ---
+page 000009: frame 000006 bits rw-
+----------------------------------
+Randomly selected page to evict: 2
+After ----------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000002 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000003 bits rw-
+page 000004: frame 000001 bits rw-
+page 000005: frame 000004 bits r--
+page 000006: frame 000000 bits ---
+page 000007: frame 000000 bits rw-
+page 000008: frame 000000 bits ---
+page 000009: frame 000006 bits rw-
+----------------------------------
+page fault on page #5
+Before ---------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000002 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000003 bits rw-
+page 000004: frame 000001 bits rw-
+page 000005: frame 000004 bits r--
+page 000006: frame 000000 bits ---
+page 000007: frame 000000 bits rw-
+page 000008: frame 000000 bits ---
+page 000009: frame 000006 bits rw-
+----------------------------------
+Page is read only, changing to read/write
+After ----------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000002 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000003 bits rw-
+page 000004: frame 000001 bits rw-
+page 000005: frame 000004 bits rw-
+page 000006: frame 000000 bits ---
+page 000007: frame 000000 bits rw-
+page 000008: frame 000000 bits ---
+page 000009: frame 000006 bits rw-
+----------------------------------
+page fault on page #6
+Before ---------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000002 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000003 bits rw-
+page 000004: frame 000001 bits rw-
+page 000005: frame 000004 bits rw-
+page 000006: frame 000000 bits ---
+page 000007: frame 000000 bits rw-
+page 000008: frame 000000 bits ---
+page 000009: frame 000006 bits rw-
+----------------------------------
+Randomly selected page to evict: 7
+After ----------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000002 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000003 bits rw-
+page 000004: frame 000001 bits rw-
+page 000005: frame 000004 bits rw-
+page 000006: frame 000000 bits r--
+page 000007: frame 000000 bits ---
+page 000008: frame 000000 bits ---
+page 000009: frame 000006 bits rw-
+----------------------------------
+page fault on page #6
+Before ---------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000002 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000003 bits rw-
+page 000004: frame 000001 bits rw-
+page 000005: frame 000004 bits rw-
+page 000006: frame 000000 bits r--
+page 000007: frame 000000 bits ---
+page 000008: frame 000000 bits ---
+page 000009: frame 000006 bits rw-
+----------------------------------
+Page is read only, changing to read/write
+After ----------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000002 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000003 bits rw-
+page 000004: frame 000001 bits rw-
+page 000005: frame 000004 bits rw-
+page 000006: frame 000000 bits rw-
+page 000007: frame 000000 bits ---
+page 000008: frame 000000 bits ---
+page 000009: frame 000006 bits rw-
+----------------------------------
+page fault on page #7
+Before ---------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000002 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000003 bits rw-
+page 000004: frame 000001 bits rw-
+page 000005: frame 000004 bits rw-
+page 000006: frame 000000 bits rw-
+page 000007: frame 000000 bits ---
+page 000008: frame 000000 bits ---
+page 000009: frame 000006 bits rw-
+----------------------------------
+Randomly selected page to evict: 3
+After ----------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000002 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000000 bits ---
+page 000004: frame 000001 bits rw-
+page 000005: frame 000004 bits rw-
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits r--
+page 000008: frame 000000 bits ---
+page 000009: frame 000006 bits rw-
+----------------------------------
+page fault on page #7
+Before ---------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000002 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000000 bits ---
+page 000004: frame 000001 bits rw-
+page 000005: frame 000004 bits rw-
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits r--
+page 000008: frame 000000 bits ---
+page 000009: frame 000006 bits rw-
+----------------------------------
+Page is read only, changing to read/write
+After ----------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000002 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000000 bits ---
+page 000004: frame 000001 bits rw-
+page 000005: frame 000004 bits rw-
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits rw-
+page 000008: frame 000000 bits ---
+page 000009: frame 000006 bits rw-
+----------------------------------
+page fault on page #8
+Before ---------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000002 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000000 bits ---
+page 000004: frame 000001 bits rw-
+page 000005: frame 000004 bits rw-
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits rw-
+page 000008: frame 000000 bits ---
+page 000009: frame 000006 bits rw-
+----------------------------------
+Randomly selected page to evict: 1
+After ----------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000000 bits ---
+page 000002: frame 000000 bits ---
+page 000003: frame 000000 bits ---
+page 000004: frame 000001 bits rw-
+page 000005: frame 000004 bits rw-
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits r--
+page 000009: frame 000006 bits rw-
+----------------------------------
+page fault on page #8
+Before ---------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000000 bits ---
+page 000002: frame 000000 bits ---
+page 000003: frame 000000 bits ---
+page 000004: frame 000001 bits rw-
+page 000005: frame 000004 bits rw-
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits r--
+page 000009: frame 000006 bits rw-
+----------------------------------
+Page is read only, changing to read/write
+After ----------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000000 bits ---
+page 000002: frame 000000 bits ---
+page 000003: frame 000000 bits ---
+page 000004: frame 000001 bits rw-
+page 000005: frame 000004 bits rw-
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+page fault on page #1
+Before ---------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000000 bits ---
+page 000002: frame 000000 bits ---
+page 000003: frame 000000 bits ---
+page 000004: frame 000001 bits rw-
+page 000005: frame 000004 bits rw-
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+Randomly selected page to evict: 4
+After ----------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000001 bits r--
+page 000002: frame 000000 bits ---
+page 000003: frame 000000 bits ---
+page 000004: frame 000000 bits ---
+page 000005: frame 000004 bits rw-
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+page fault on page #2
+Before ---------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000001 bits r--
+page 000002: frame 000000 bits ---
+page 000003: frame 000000 bits ---
+page 000004: frame 000000 bits ---
+page 000005: frame 000004 bits rw-
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+After ----------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000000 bits ---
+page 000002: frame 000001 bits r--
+page 000003: frame 000000 bits ---
+page 000004: frame 000000 bits ---
+page 000005: frame 000004 bits rw-
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+page fault on page #3
+Before ---------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000000 bits ---
+page 000002: frame 000001 bits r--
+page 000003: frame 000000 bits ---
+page 000004: frame 000000 bits ---
+page 000005: frame 000004 bits rw-
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+After ----------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000000 bits ---
+page 000002: frame 000000 bits ---
+page 000003: frame 000001 bits r--
+page 000004: frame 000000 bits ---
+page 000005: frame 000004 bits rw-
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+page fault on page #4
+Before ---------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000000 bits ---
+page 000002: frame 000000 bits ---
+page 000003: frame 000001 bits r--
+page 000004: frame 000000 bits ---
+page 000005: frame 000004 bits rw-
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+After ----------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000000 bits ---
+page 000002: frame 000000 bits ---
+page 000003: frame 000000 bits ---
+page 000004: frame 000001 bits r--
+page 000005: frame 000004 bits rw-
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+page fault on page #1
+Before ---------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000000 bits ---
+page 000002: frame 000000 bits ---
+page 000003: frame 000000 bits ---
+page 000004: frame 000001 bits r--
+page 000005: frame 000004 bits rw-
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+After ----------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000001 bits r--
+page 000002: frame 000000 bits ---
+page 000003: frame 000000 bits ---
+page 000004: frame 000000 bits ---
+page 000005: frame 000004 bits rw-
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+page fault on page #1
+Before ---------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000001 bits r--
+page 000002: frame 000000 bits ---
+page 000003: frame 000000 bits ---
+page 000004: frame 000000 bits ---
+page 000005: frame 000004 bits rw-
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+Page is read only, changing to read/write
+After ----------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000001 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000000 bits ---
+page 000004: frame 000000 bits ---
+page 000005: frame 000004 bits rw-
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+page fault on page #2
+Before ---------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000001 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000000 bits ---
+page 000004: frame 000000 bits ---
+page 000005: frame 000004 bits rw-
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+Randomly selected page to evict: 5
+After ----------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000001 bits rw-
+page 000002: frame 000004 bits r--
+page 000003: frame 000000 bits ---
+page 000004: frame 000000 bits ---
+page 000005: frame 000000 bits ---
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+page fault on page #2
+Before ---------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000001 bits rw-
+page 000002: frame 000004 bits r--
+page 000003: frame 000000 bits ---
+page 000004: frame 000000 bits ---
+page 000005: frame 000000 bits ---
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+Page is read only, changing to read/write
+After ----------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000001 bits rw-
+page 000002: frame 000004 bits rw-
+page 000003: frame 000000 bits ---
+page 000004: frame 000000 bits ---
+page 000005: frame 000000 bits ---
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+page fault on page #3
+Before ---------------------------
+page 000000: frame 000005 bits rw-
+page 000001: frame 000001 bits rw-
+page 000002: frame 000004 bits rw-
+page 000003: frame 000000 bits ---
+page 000004: frame 000000 bits ---
+page 000005: frame 000000 bits ---
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+Randomly selected page to evict: 0
+After ----------------------------
+page 000000: frame 000000 bits ---
+page 000001: frame 000001 bits rw-
+page 000002: frame 000004 bits rw-
+page 000003: frame 000005 bits r--
+page 000004: frame 000000 bits ---
+page 000005: frame 000000 bits ---
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+page fault on page #3
+Before ---------------------------
+page 000000: frame 000000 bits ---
+page 000001: frame 000001 bits rw-
+page 000002: frame 000004 bits rw-
+page 000003: frame 000005 bits r--
+page 000004: frame 000000 bits ---
+page 000005: frame 000000 bits ---
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+Page is read only, changing to read/write
+After ----------------------------
+page 000000: frame 000000 bits ---
+page 000001: frame 000001 bits rw-
+page 000002: frame 000004 bits rw-
+page 000003: frame 000005 bits rw-
+page 000004: frame 000000 bits ---
+page 000005: frame 000000 bits ---
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+page fault on page #4
+Before ---------------------------
+page 000000: frame 000000 bits ---
+page 000001: frame 000001 bits rw-
+page 000002: frame 000004 bits rw-
+page 000003: frame 000005 bits rw-
+page 000004: frame 000000 bits ---
+page 000005: frame 000000 bits ---
+page 000006: frame 000000 bits rw-
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+Randomly selected page to evict: 6
+After ----------------------------
+page 000000: frame 000000 bits ---
+page 000001: frame 000001 bits rw-
+page 000002: frame 000004 bits rw-
+page 000003: frame 000005 bits rw-
+page 000004: frame 000000 bits r--
+page 000005: frame 000000 bits ---
+page 000006: frame 000000 bits ---
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+page fault on page #4
+Before ---------------------------
+page 000000: frame 000000 bits ---
+page 000001: frame 000001 bits rw-
+page 000002: frame 000004 bits rw-
+page 000003: frame 000005 bits rw-
+page 000004: frame 000000 bits r--
+page 000005: frame 000000 bits ---
+page 000006: frame 000000 bits ---
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+Page is read only, changing to read/write
+After ----------------------------
+page 000000: frame 000000 bits ---
+page 000001: frame 000001 bits rw-
+page 000002: frame 000004 bits rw-
+page 000003: frame 000005 bits rw-
 page 000004: frame 000000 bits rw-
 page 000005: frame 000000 bits ---
 page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits ---
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
+page fault on page #5
+Before ---------------------------
+page 000000: frame 000000 bits ---
+page 000001: frame 000001 bits rw-
+page 000002: frame 000004 bits rw-
+page 000003: frame 000005 bits rw-
+page 000004: frame 000000 bits rw-
+page 000005: frame 000000 bits ---
+page 000006: frame 000000 bits ---
+page 000007: frame 000003 bits rw-
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+Randomly selected page to evict: 7
 After ----------------------------
 page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits ---
+page 000001: frame 000001 bits rw-
 page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
+page 000003: frame 000005 bits rw-
 page 000004: frame 000000 bits rw-
 page 000005: frame 000003 bits r--
 page 000006: frame 000000 bits ---
 page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits ---
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
 page fault on page #5
 Before ---------------------------
 page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits ---
+page 000001: frame 000001 bits rw-
 page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
+page 000003: frame 000005 bits rw-
 page 000004: frame 000000 bits rw-
 page 000005: frame 000003 bits r--
 page 000006: frame 000000 bits ---
 page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits ---
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
 Page is read only, changing to read/write
 After ----------------------------
 page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits ---
+page 000001: frame 000001 bits rw-
 page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
+page 000003: frame 000005 bits rw-
 page 000004: frame 000000 bits rw-
 page 000005: frame 000003 bits rw-
 page 000006: frame 000000 bits ---
 page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits ---
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
 page fault on page #6
 Before ---------------------------
 page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits ---
+page 000001: frame 000001 bits rw-
 page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
+page 000003: frame 000005 bits rw-
 page 000004: frame 000000 bits rw-
 page 000005: frame 000003 bits rw-
 page 000006: frame 000000 bits ---
 page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits ---
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
+Randomly selected page to evict: 2
 After ----------------------------
 page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
+page 000001: frame 000001 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000005 bits rw-
 page 000004: frame 000000 bits rw-
 page 000005: frame 000003 bits rw-
-page 000006: frame 000002 bits r--
+page 000006: frame 000004 bits r--
 page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
 page fault on page #6
 Before ---------------------------
 page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
+page 000001: frame 000001 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000005 bits rw-
 page 000004: frame 000000 bits rw-
 page 000005: frame 000003 bits rw-
-page 000006: frame 000002 bits r--
+page 000006: frame 000004 bits r--
 page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
 Page is read only, changing to read/write
 After ----------------------------
 page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
+page 000001: frame 000001 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000005 bits rw-
 page 000004: frame 000000 bits rw-
 page 000005: frame 000003 bits rw-
-page 000006: frame 000002 bits rw-
+page 000006: frame 000004 bits rw-
 page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
 page fault on page #7
 Before ---------------------------
 page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
+page 000001: frame 000001 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000005 bits rw-
 page 000004: frame 000000 bits rw-
 page 000005: frame 000003 bits rw-
-page 000006: frame 000002 bits rw-
+page 000006: frame 000004 bits rw-
 page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
+page 000008: frame 000002 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
+Randomly selected page to evict: 8
 After ----------------------------
 page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
+page 000001: frame 000001 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000005 bits rw-
 page 000004: frame 000000 bits rw-
 page 000005: frame 000003 bits rw-
-page 000006: frame 000000 bits ---
+page 000006: frame 000004 bits rw-
 page 000007: frame 000002 bits r--
 page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
+page 000009: frame 000006 bits rw-
 ----------------------------------
 page fault on page #7
 Before ---------------------------
 page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
+page 000001: frame 000001 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000005 bits rw-
 page 000004: frame 000000 bits rw-
 page 000005: frame 000003 bits rw-
-page 000006: frame 000000 bits ---
+page 000006: frame 000004 bits rw-
 page 000007: frame 000002 bits r--
 page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
+page 000009: frame 000006 bits rw-
 ----------------------------------
 Page is read only, changing to read/write
 After ----------------------------
 page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
+page 000001: frame 000001 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000005 bits rw-
 page 000004: frame 000000 bits rw-
 page 000005: frame 000003 bits rw-
-page 000006: frame 000000 bits ---
+page 000006: frame 000004 bits rw-
 page 000007: frame 000002 bits rw-
 page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
+page 000009: frame 000006 bits rw-
 ----------------------------------
 page fault on page #8
 Before ---------------------------
 page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
+page 000001: frame 000001 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000005 bits rw-
 page 000004: frame 000000 bits rw-
 page 000005: frame 000003 bits rw-
-page 000006: frame 000000 bits ---
+page 000006: frame 000004 bits rw-
 page 000007: frame 000002 bits rw-
 page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
+page 000009: frame 000006 bits rw-
 ----------------------------------
+Randomly selected page to evict: 3
 After ----------------------------
 page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
-page 000004: frame 000000 bits ---
+page 000001: frame 000001 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000000 bits ---
+page 000004: frame 000000 bits rw-
 page 000005: frame 000003 bits rw-
-page 000006: frame 000000 bits ---
+page 000006: frame 000004 bits rw-
 page 000007: frame 000002 bits rw-
-page 000008: frame 000000 bits r--
-page 000009: frame 000000 bits ---
+page 000008: frame 000005 bits r--
+page 000009: frame 000006 bits rw-
 ----------------------------------
 page fault on page #8
 Before ---------------------------
 page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
-page 000004: frame 000000 bits ---
+page 000001: frame 000001 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000000 bits ---
+page 000004: frame 000000 bits rw-
 page 000005: frame 000003 bits rw-
-page 000006: frame 000000 bits ---
+page 000006: frame 000004 bits rw-
 page 000007: frame 000002 bits rw-
-page 000008: frame 000000 bits r--
-page 000009: frame 000000 bits ---
+page 000008: frame 000005 bits r--
+page 000009: frame 000006 bits rw-
 ----------------------------------
 Page is read only, changing to read/write
 After ----------------------------
 page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
-page 000004: frame 000000 bits ---
+page 000001: frame 000001 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000000 bits ---
+page 000004: frame 000000 bits rw-
 page 000005: frame 000003 bits rw-
-page 000006: frame 000000 bits ---
+page 000006: frame 000004 bits rw-
 page 000007: frame 000002 bits rw-
-page 000008: frame 000000 bits rw-
-page 000009: frame 000000 bits ---
-----------------------------------
-page fault on page #9
-Before ---------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
-page 000004: frame 000000 bits ---
-page 000005: frame 000003 bits rw-
-page 000006: frame 000000 bits ---
-page 000007: frame 000002 bits rw-
-page 000008: frame 000000 bits rw-
-page 000009: frame 000000 bits ---
-----------------------------------
-After ----------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000002 bits rw-
-page 000008: frame 000000 bits rw-
-page 000009: frame 000003 bits r--
-----------------------------------
-page fault on page #9
-Before ---------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000002 bits rw-
-page 000008: frame 000000 bits rw-
-page 000009: frame 000003 bits r--
-----------------------------------
-Page is read only, changing to read/write
-After ----------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000002 bits rw-
-page 000008: frame 000000 bits rw-
-page 000009: frame 000003 bits rw-
+page 000008: frame 000005 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
 page fault on page #0
 Before ---------------------------
 page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
+page 000001: frame 000001 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000000 bits ---
+page 000004: frame 000000 bits rw-
+page 000005: frame 000003 bits rw-
+page 000006: frame 000004 bits rw-
 page 000007: frame 000002 bits rw-
-page 000008: frame 000000 bits rw-
-page 000009: frame 000003 bits rw-
+page 000008: frame 000005 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
+Randomly selected page to evict: 5
 After ----------------------------
-page 000000: frame 000002 bits r--
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
-page 000004: frame 000000 bits ---
+page 000000: frame 000003 bits r--
+page 000001: frame 000001 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000000 bits ---
+page 000004: frame 000000 bits rw-
 page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits rw-
-page 000009: frame 000003 bits rw-
+page 000006: frame 000004 bits rw-
+page 000007: frame 000002 bits rw-
+page 000008: frame 000005 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
 page fault on page #0
 Before ---------------------------
-page 000000: frame 000002 bits r--
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
-page 000004: frame 000000 bits ---
+page 000000: frame 000003 bits r--
+page 000001: frame 000001 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000000 bits ---
+page 000004: frame 000000 bits rw-
 page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits rw-
-page 000009: frame 000003 bits rw-
+page 000006: frame 000004 bits rw-
+page 000007: frame 000002 bits rw-
+page 000008: frame 000005 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
 Page is read only, changing to read/write
 After ----------------------------
-page 000000: frame 000002 bits rw-
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
-page 000004: frame 000000 bits ---
+page 000000: frame 000003 bits rw-
+page 000001: frame 000001 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000000 bits ---
+page 000004: frame 000000 bits rw-
 page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits rw-
-page 000009: frame 000003 bits rw-
+page 000006: frame 000004 bits rw-
+page 000007: frame 000002 bits rw-
+page 000008: frame 000005 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
-page fault on page #1
+page fault on page #2
 Before ---------------------------
-page 000000: frame 000002 bits rw-
-page 000001: frame 000000 bits ---
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
-page 000004: frame 000000 bits ---
+page 000000: frame 000003 bits rw-
+page 000001: frame 000001 bits rw-
+page 000002: frame 000000 bits ---
+page 000003: frame 000000 bits ---
+page 000004: frame 000000 bits rw-
 page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits rw-
-page 000009: frame 000003 bits rw-
+page 000006: frame 000004 bits rw-
+page 000007: frame 000002 bits rw-
+page 000008: frame 000005 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+Randomly selected page to evict: 1
+After ----------------------------
+page 000000: frame 000003 bits rw-
+page 000001: frame 000000 bits ---
+page 000002: frame 000001 bits r--
+page 000003: frame 000000 bits ---
+page 000004: frame 000000 bits rw-
+page 000005: frame 000000 bits ---
+page 000006: frame 000004 bits rw-
+page 000007: frame 000002 bits rw-
+page 000008: frame 000005 bits rw-
+page 000009: frame 000006 bits rw-
+----------------------------------
+page fault on page #3
+Before ---------------------------
+page 000000: frame 000003 bits rw-
+page 000001: frame 000000 bits ---
+page 000002: frame 000001 bits r--
+page 000003: frame 000000 bits ---
+page 000004: frame 000000 bits rw-
+page 000005: frame 000000 bits ---
+page 000006: frame 000004 bits rw-
+page 000007: frame 000002 bits rw-
+page 000008: frame 000005 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
 After ----------------------------
-page 000000: frame 000002 bits rw-
-page 000001: frame 000000 bits r--
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
-page 000004: frame 000000 bits ---
+page 000000: frame 000003 bits rw-
+page 000001: frame 000000 bits ---
+page 000002: frame 000000 bits ---
+page 000003: frame 000001 bits r--
+page 000004: frame 000000 bits rw-
 page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-page fault on page #4
-Before ---------------------------
-page 000000: frame 000002 bits rw-
-page 000001: frame 000000 bits r--
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000003 bits rw-
-----------------------------------
-After ----------------------------
-page 000000: frame 000002 bits rw-
-page 000001: frame 000000 bits r--
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
-page 000004: frame 000003 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
+page 000006: frame 000004 bits rw-
+page 000007: frame 000002 bits rw-
+page 000008: frame 000005 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
 page fault on page #5
 Before ---------------------------
-page 000000: frame 000002 bits rw-
-page 000001: frame 000000 bits r--
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
-page 000004: frame 000003 bits r--
+page 000000: frame 000003 bits rw-
+page 000001: frame 000000 bits ---
+page 000002: frame 000000 bits ---
+page 000003: frame 000001 bits r--
+page 000004: frame 000000 bits rw-
 page 000005: frame 000000 bits ---
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
+page 000006: frame 000004 bits rw-
+page 000007: frame 000002 bits rw-
+page 000008: frame 000005 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
 After ----------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits r--
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
-page 000004: frame 000003 bits r--
-page 000005: frame 000002 bits r--
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-page fault on page #6
-Before ---------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits r--
-page 000002: frame 000004 bits rw-
-page 000003: frame 000001 bits rw-
-page 000004: frame 000003 bits r--
-page 000005: frame 000002 bits r--
-page 000006: frame 000000 bits ---
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-After ----------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits r--
+page 000000: frame 000003 bits rw-
+page 000001: frame 000000 bits ---
 page 000002: frame 000000 bits ---
-page 000003: frame 000001 bits rw-
-page 000004: frame 000003 bits r--
-page 000005: frame 000002 bits r--
-page 000006: frame 000004 bits r--
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
+page 000003: frame 000000 bits ---
+page 000004: frame 000000 bits rw-
+page 000005: frame 000001 bits r--
+page 000006: frame 000004 bits rw-
+page 000007: frame 000002 bits rw-
+page 000008: frame 000005 bits rw-
+page 000009: frame 000006 bits rw-
 ----------------------------------
-page fault on page #7
-Before ---------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits r--
-page 000002: frame 000000 bits ---
-page 000003: frame 000001 bits rw-
-page 000004: frame 000003 bits r--
-page 000005: frame 000002 bits r--
-page 000006: frame 000004 bits r--
-page 000007: frame 000000 bits ---
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-After ----------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits r--
-page 000002: frame 000000 bits ---
-page 000003: frame 000001 bits rw-
-page 000004: frame 000003 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000004 bits r--
-page 000007: frame 000002 bits r--
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-page fault on page #8
-Before ---------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits r--
-page 000002: frame 000000 bits ---
-page 000003: frame 000001 bits rw-
-page 000004: frame 000003 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000004 bits r--
-page 000007: frame 000002 bits r--
-page 000008: frame 000000 bits ---
-page 000009: frame 000000 bits ---
-----------------------------------
-After ----------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits r--
-page 000002: frame 000000 bits ---
-page 000003: frame 000001 bits rw-
-page 000004: frame 000003 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000004 bits r--
-page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits ---
-----------------------------------
-page fault on page #9
-Before ---------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits r--
-page 000002: frame 000000 bits ---
-page 000003: frame 000001 bits rw-
-page 000004: frame 000003 bits r--
-page 000005: frame 000000 bits ---
-page 000006: frame 000004 bits r--
-page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000000 bits ---
-----------------------------------
-After ----------------------------
-page 000000: frame 000000 bits ---
-page 000001: frame 000000 bits r--
-page 000002: frame 000000 bits ---
-page 000003: frame 000001 bits rw-
-page 000004: frame 000000 bits ---
-page 000005: frame 000000 bits ---
-page 000006: frame 000004 bits r--
-page 000007: frame 000000 bits ---
-page 000008: frame 000002 bits r--
-page 000009: frame 000003 bits r--
-----------------------------------
-Sort Successful: Result = -51407
-Total page faults: 52
+Sort Successful: Result = -51700
+Total page faults: 34
+Total disk writes: 21
+Total disk reads: 34
+model: custom
+program: sort

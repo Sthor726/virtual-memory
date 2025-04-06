@@ -194,6 +194,7 @@ void page_fault_handler_fifo_eviction(struct page_table *pt, int page) {
 
 void page_fault_handler_custom_eviction(struct page_table *pt, int page) {
     cout << "page fault on page #" << page << endl;
+    
 
     // Print the page table contents
     cout << "Before ---------------------------" << endl;
@@ -249,6 +250,7 @@ void page_fault_handler_custom_eviction(struct page_table *pt, int page) {
             if (no_write.empty()) {
                 int random_index = std::rand() % pages_in_use.size();
                 replaced_page_number = pages_in_use[random_index];
+                cout << "Randomly selected page to evict: " << replaced_page_number << endl;
             }
             else {
                 // we have a page with only read permsions 
@@ -280,6 +282,7 @@ void page_fault_handler_custom_eviction(struct page_table *pt, int page) {
             if (it != no_write.end()) {
                 no_write.erase(it);
             }
+            no_write.push_back(page);
         }
     }
 
@@ -338,6 +341,8 @@ int main(int argc, char *argv[])
     else if (!strcmp(program_name, "focus"))
     {
         program = focus_program;
+    } else if (!strcmp(program_name, "custom")){
+        program = custom_program;
     }
     else
     {
@@ -388,6 +393,9 @@ int main(int argc, char *argv[])
     std::cout << "Total page faults: " << total_page_faults << endl;
     std::cout << "Total disk writes: " << total_disk_writes << endl;
     std::cout << "Total disk reads: " << total_disk_reads << endl;
+
+    std::cout << "model: " << algorithm << endl;
+    std::cout << "program: " << program_name << endl;
     // Clean up the page table and disk
     page_table_delete(pt);
     disk_close(disk);

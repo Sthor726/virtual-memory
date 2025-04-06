@@ -142,3 +142,37 @@ void scan_program(char *cdata, int length)
         cout << "Scan Failed: Result = " << total << ", Expected = " << total_verify << endl;
     }
 }
+
+
+void custom_program(char *cdata, int length)
+{
+    unsigned i, j;
+    unsigned char *data = (unsigned char *)cdata;
+    unsigned total = 0;
+
+    for (i = 0; i < (unsigned)length; i++)
+    {
+        data[i] = i % 256;
+    }
+
+    unsigned total_verify = 0;
+    for (j = 0; j < 10; j++)
+    {
+        for (i = 0; i < (unsigned)length; i++)
+        {
+            total += data[i];
+            total_verify += i % 256;
+
+            data[0] += data[i];
+        }
+    }
+
+    if (total == total_verify)
+    {
+        cout << "Custom Successful: Result = " << total << endl;
+    }
+    else
+    {
+        cout << "Custom Failed: Result = " << total << ", Expected = " << total_verify << endl;
+    }
+}
