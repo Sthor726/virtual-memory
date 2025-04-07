@@ -72,6 +72,7 @@ void focus_program(char *data, int length)
     else
     {
         cout << "Focus Failed: Result = " << total << ", Expected = " << total_verify << endl;
+        exit(1);
     }
 }
 
@@ -109,6 +110,7 @@ void sort_program(char *data, int length)
     else
     {
         cout << "Sort Failed: Result = " << total << ", Expected = " << total_verify << endl;
+        exit(1);
     }
 }
 
@@ -140,6 +142,7 @@ void scan_program(char *cdata, int length)
     else
     {
         cout << "Scan Failed: Result = " << total << ", Expected = " << total_verify << endl;
+        exit(1);
     }
 }
 
@@ -174,5 +177,6 @@ void custom_program(char *cdata, int length)
     else
     {
         cout << "Custom Failed: Result = " << total << ", Expected = " << total_verify << endl;
+        exit(1);
     }
 }

@@ -17,6 +17,7 @@ how to use the page table and disk interfaces.
 #include <queue>
 #include <stack>
 #include <algorithm>
+#include <fstream>
 
 using namespace std;
 
@@ -24,7 +25,10 @@ using namespace std;
 typedef void (*program_f)(char *data, int length);
 
 // Number of physical frames
-int nframes;
+int num_frames;
+int npages;
+
+bool printflag = true;
 
 // Pointer to disk for access from handlers
 struct disk *disk = nullptr;
@@ -33,18 +37,20 @@ vector<bool> frames_used;
 queue <int> fifo_queue; // FIFO queue for page replacement
 vector <int> no_write;
 
+
 int total_page_faults;
 int total_disk_writes;
 int total_disk_reads;
 
 // Handler with random choice of eviction
 void page_fault_handler_random_eviction(struct page_table *pt, int page) {
-    cout << "page fault on page #" << page << endl;
-
-    // Print the page table contents
-    cout << "Before ---------------------------" << endl;
-    page_table_print(pt);
-    cout << "----------------------------------" << endl;
+    if (printflag) {
+        cout << "page fault on page #" << page << endl;
+        // Print the page table contents
+        cout << "Before ---------------------------" << endl;
+        page_table_print(pt);
+        cout << "----------------------------------" << endl;
+    }
 
     // case for chnageing page to W
     int* bits = new int;
@@ -52,15 +58,13 @@ void page_fault_handler_random_eviction(struct page_table *pt, int page) {
     page_table_get_entry(pt, page, framenumber, bits);
     if (*bits == PROT_READ ) // making a page dirty
     {
-        std::cout << "Page is read only, changing to read/write" << endl;
         page_table_set_entry(pt, page, *framenumber, PROT_READ | PROT_WRITE);
     } else if (*bits != PROT_READ) { // if the page needs to be alloced in Physcial mem
         total_page_faults++;
         // we need at add this to the page table 
         //check if frames are available
         bool already_allocated = false;
-
-        for (int i = 0; i < nframes; i++) {
+        for (int i = 0; i < page_table_get_nframes(pt); i++) {
             if (frames_used[i] == false) {
                 // Found an empty frame
                 frames_used[i] = true;
@@ -106,35 +110,37 @@ void page_fault_handler_random_eviction(struct page_table *pt, int page) {
             disk_read(disk, page, page_table_get_physmem(pt) + (*replaced_frame * PAGE_SIZE));
             total_disk_reads++;
             page_table_set_entry(pt, *replaced_page, *framenumber, PROT_NONE);
-
             page_table_set_entry(pt, page, *replaced_frame, PROT_READ);
             //frames_used[*replaced_frame] = true;
         }
     }
-
-    // Print the page table contents
-    cout << "After ----------------------------" << endl;
-    page_table_print(pt);
-    cout << "----------------------------------" << endl;
+    if (printflag) {
+        // Print the page table contents
+        cout << "After ----------------------------" << endl;
+        page_table_print(pt);
+        cout << "----------------------------------" << endl;
+    }
+   
 }
 
 
 // Handler with random choice of eviction
 void page_fault_handler_fifo_eviction(struct page_table *pt, int page) {
-    cout << "page fault on page #" << page << endl;
+    if (printflag) {
+        cout << "page fault on page #" << page << endl;
 
-    // Print the page table contents
-    cout << "Before ---------------------------" << endl;
-    page_table_print(pt);
-    cout << "----------------------------------" << endl;
-
+        // Print the page table contents
+        cout << "Before ---------------------------" << endl;
+        page_table_print(pt);
+        cout << "----------------------------------" << endl;
+    }
     // case for chnageing page to W
     int* bits = new int;
     int* framenumber = new int;
     page_table_get_entry(pt, page, framenumber, bits);
     if (*bits == PROT_READ ) // making a page dirty
     {
-        std::cout << "Page is read only, changing to read/write" << endl;
+        // std::cout << "Page is read only, changing to read/write" << endl;
         page_table_set_entry(pt, page, *framenumber, PROT_READ | PROT_WRITE);
     } else if (*bits != PROT_READ) { // if the page needs to be alloced in Physcial mem
         total_page_faults++;
@@ -142,7 +148,7 @@ void page_fault_handler_fifo_eviction(struct page_table *pt, int page) {
         //check if frames are available
         bool already_allocated = false;
 
-        for (int i = 0; i < nframes; i++) {
+        for (int i = 0; i < page_table_get_nframes(pt); i++) {
             if (frames_used[i] == false) {
                 // Found an empty frame
                 frames_used[i] = true;
@@ -155,16 +161,16 @@ void page_fault_handler_fifo_eviction(struct page_table *pt, int page) {
             }
         }
         if (!already_allocated) {
-           
-
             int* replaced_page = new int;
-            *replaced_page = fifo_queue.front();
+            int replaced_page_temp = fifo_queue.front();
+            *replaced_page = replaced_page_temp;
             fifo_queue.pop();
 
             int* replaced_page_bits = new int;
             int* replaced_frame = new int;
 
             page_table_get_entry(pt, *replaced_page, replaced_frame, replaced_page_bits);
+            
 
             if (*replaced_page_bits & PROT_WRITE){
                 // Replaced page is dirty, we need to write it to the disk before replacing
@@ -183,23 +189,26 @@ void page_fault_handler_fifo_eviction(struct page_table *pt, int page) {
             fifo_queue.push(page);
         }
     }
-
-    // Print the page table contents
-    cout << "After ----------------------------" << endl;
-    page_table_print(pt);
-    cout << "----------------------------------" << endl;
+    if (printflag) {
+        // Print the page table contents
+        cout << "After ----------------------------" << endl;
+        page_table_print(pt);
+        cout << "----------------------------------" << endl;
+    }
+    
 }
 
 
 
 void page_fault_handler_custom_eviction(struct page_table *pt, int page) {
-    cout << "page fault on page #" << page << endl;
     
-
-    // Print the page table contents
-    cout << "Before ---------------------------" << endl;
-    page_table_print(pt);
-    cout << "----------------------------------" << endl;
+    if (printflag) {
+        // Print the page table contents
+        cout << "Before ---------------------------" << endl;
+        page_table_print(pt);
+        cout << "----------------------------------" << endl;
+    }
+   
 
     // case for chnageing page to W
     int* bits = new int;
@@ -207,7 +216,7 @@ void page_fault_handler_custom_eviction(struct page_table *pt, int page) {
     page_table_get_entry(pt, page, framenumber, bits);
     if (*bits == PROT_READ ) // making a page dirty
     {
-        std::cout << "Page is read only, changing to read/write" << endl;
+        // std::cout << "Page is read only, changing to read/write" << endl;
         page_table_set_entry(pt, page, *framenumber, PROT_READ | PROT_WRITE);
         auto it = std::find(no_write.begin(), no_write.end(), page);
         if (it != no_write.end()) {
@@ -219,7 +228,7 @@ void page_fault_handler_custom_eviction(struct page_table *pt, int page) {
         //check if frames are available
         bool already_allocated = false;
 
-        for (int i = 0; i < nframes; i++) {
+        for (int i = 0; i < page_table_get_nframes(pt); i++) {
             if (frames_used[i] == false) {
                 // Found an empty frame
                 frames_used[i] = true;
@@ -250,7 +259,6 @@ void page_fault_handler_custom_eviction(struct page_table *pt, int page) {
             if (no_write.empty()) {
                 int random_index = std::rand() % pages_in_use.size();
                 replaced_page_number = pages_in_use[random_index];
-                cout << "Randomly selected page to evict: " << replaced_page_number << endl;
             }
             else {
                 // we have a page with only read permsions 
@@ -285,30 +293,26 @@ void page_fault_handler_custom_eviction(struct page_table *pt, int page) {
             no_write.push_back(page);
         }
     }
-
-    // Print the page table contents
-    cout << "After ----------------------------" << endl;
-    page_table_print(pt);
-    cout << "----------------------------------" << endl;
+    if (printflag) {
+        // Print the page table contents
+        cout << "After ----------------------------" << endl;
+        page_table_print(pt);
+        cout << "----------------------------------" << endl;
+    }
 }
 
 
 // TODO Handler with custom eviction
 
-int main(int argc, char *argv[])
+vector<int> mainfunc(int npages, int nframes, const char *algorithm, const char *program_name)
 {
-    // Check argument count
-    if (argc != 5)
-    {
-        cerr << "Usage: virtmem <npages> <nframes> <rand|fifo|custom> <sort|scan|focus>" << endl;
-        exit(1);
-    }
+    std::cout << "USAGE\n";
+    std::cout << "npages: " << npages;
+    std::cout << " nframes: " << nframes ;
+    std::cout << " algorithm: " << algorithm ;
+    std::cout << " program: " << program_name ;
+    std::cout << endl;
 
-    // Parse command line arguments
-    int npages = atoi(argv[1]);
-    nframes = atoi(argv[2]);
-    const char *algorithm = argv[3];
-    const char *program_name = argv[4];
     total_page_faults = 0;
     total_disk_writes = 0;
     total_disk_reads = 0;
@@ -352,15 +356,24 @@ int main(int argc, char *argv[])
 
     // TODO - Any init needed
     frames_used.resize(nframes, false);
-
-
+    cout << "Frames used: " << frames_used.size() << endl;
+    for (int i = 0; i < nframes; i++) {
+        frames_used[i] = false;
+    }
+    // make sure queue is empty 
+    while (!fifo_queue.empty()) {
+        fifo_queue.pop();
+    }
+    while (!no_write.empty()) {
+        no_write.pop_back();
+    }
 
     // Create a virtual disk
     disk = disk_open("myvirtualdisk", npages);
     if (!disk)
     {
         cerr << "ERROR: Couldn't create virtual disk: " << strerror(errno) << endl;
-        return 1;
+        exit(1);
     }
 
     // Create a page table
@@ -379,12 +392,11 @@ int main(int argc, char *argv[])
         
         page_fault_handler = page_fault_handler_custom_eviction;
     }
-
-    struct page_table *pt = page_table_create(npages, nframes, page_fault_handler /* TODO - Replace with your handler(s)*/);
+    struct page_table *pt = page_table_create(npages,  nframes, page_fault_handler /* TODO - Replace with your handler(s)*/);
     if (!pt)
     {
         cerr << "ERROR: Couldn't create page table: " << strerror(errno) << endl;
-        return 1;
+        exit(1);
     }
 
     // Run the specified program
@@ -396,9 +408,84 @@ int main(int argc, char *argv[])
 
     std::cout << "model: " << algorithm << endl;
     std::cout << "program: " << program_name << endl;
+    std::cout << endl << endl;
     // Clean up the page table and disk
     page_table_delete(pt);
     disk_close(disk);
+    
+    return { total_page_faults, total_disk_writes, total_disk_reads };
 
-    return 0;
+}
+
+
+
+
+int main(int argc, char *argv[]) {    
+    if (argc == 5) {
+        npages = atoi(argv[1]);
+        num_frames = atoi(argv[2]);
+        const char *algorithm = argv[3];
+        const char *program_name = argv[4];
+
+        vector<int> result = mainfunc(npages, num_frames, algorithm, program_name);
+    }
+    else if (argc == 2 && argv[1] == std::string("batch")) { // usage ./virtmem batch <npages> <num_frames> 
+        printflag = false;
+        std::cout << "__________BATCH MODE__________" <<endl;
+
+        //vector <int> page_to_frame_ratio = { 1, 2, 3, 5, 10};
+        //vector <int> page_to_frame_ratio = { 2, 10};
+
+        vector <int> number_of_frames = {2, 5, 10, 20};
+
+        vector <const char*> algorithms = { "rand", "fifo", "custom" };
+        vector <const char*> programs = { "sort", "scan", "focus", "custom" };
+
+        vector<vector<std::string>> results; // strings so we can put it all in one vector. We can chnage it back to ints later 
+        // formatt of results. [npages, nframes, algorithm, program, pagefaults, diskwrites, diskreads]
+        npages = 100;
+        for (int i = 0; i < number_of_frames.size(); i++) {
+            num_frames = number_of_frames[i];
+            if (num_frames < 2) {
+                continue;
+            }
+            for (int j = 0; j < algorithms.size(); j++) {
+                const char *algorithm = algorithms[j];
+                for (int k = 0; k < programs.size(); k++) {
+                    const char *program_name = programs[k];
+                    vector<int>result = mainfunc(npages, num_frames, algorithm, program_name);
+                    vector<string> result_string = {
+                        std::to_string(npages),
+                        std::to_string(num_frames),
+                        algorithm,
+                        program_name,
+                        std::to_string(result[0]),
+                        std::to_string(result[1]),
+                        std::to_string(result[2])
+                    };
+                }
+            }            
+        }
+        
+        std::cout << "__________RESULT__________" <<endl;
+        for (int i = 0; i < results.size(); i++) {
+            for (int j = 0; j < results[i].size(); j++) {
+                std::cout << results[i][j] << " ";
+            }
+            std::cout << endl;
+        }
+        //write result to a file
+        std::ofstream outfile("results.txt");
+        if (outfile.is_open()) {
+            for (int i = 0; i < results.size(); i++) {
+                for (int j = 0; j < results[i].size(); j++) {
+                    outfile << results[i][j] << ", ";
+                }
+                outfile << endl;
+            }
+            outfile.close();
+        } else {
+            std::cout << "Unable to open file";
+        }
+    }
 }

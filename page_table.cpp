@@ -81,7 +81,16 @@ struct page_table *page_table_create(int npages, int nframes, page_fault_handler
     pt->npages = npages;
 
     pt->page_bits = new int[npages];
+    for (i = 0; i < npages; i++)
+    {
+        pt->page_bits[i] = 0;
+    }
     pt->page_mapping = new int[npages];
+    // properly initialize the page mapping back to 0 after a run
+    for (i = 0; i < npages; i++)
+    {
+        pt->page_mapping[i] = 0;
+    }
 
     pt->handler = handler;
 
@@ -111,12 +120,16 @@ void page_table_set_entry(struct page_table *pt, int page, int frame, int bits)
 {
     if (page < 0 || page >= pt->npages)
     {
+        // cout << "page: " << page << endl;
+        // cout << "pt->npages " << pt->npages << endl;
         cerr << "page_table_set_entry: illegal page #" << page << endl;
         abort();
     }
 
     if (frame < 0 || frame >= pt->nframes)
     {
+        // cout << "frame: " << page << endl;
+        // cout << "pt->nframe " << pt->nframes << endl;
         cerr << "page_table_set_entry: illegal frame #" << frame << endl;
         abort();
     }
