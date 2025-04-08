@@ -28,14 +28,21 @@ typedef void (*program_f)(char *data, int length);
 int num_frames;
 int npages;
 
-bool printflag = true;
+bool printflag = false;
 
 // Pointer to disk for access from handlers
 struct disk *disk = nullptr;
 vector<bool> frames_used;
 
 queue <int> fifo_queue; // FIFO queue for page replacement
-vector <int> no_write;
+// vector <int> no_write;
+
+struct clock_entry {
+    int page;
+    bool used;
+};
+vector <clock_entry> clock_entries;
+int clock_index = 0;
 
 
 int total_page_faults;
@@ -213,15 +220,14 @@ void page_fault_handler_fifo_eviction(struct page_table *pt, int page) {
 
 
 void page_fault_handler_custom_eviction(struct page_table *pt, int page) {
-    
     if (printflag) {
+        cout << "page fault on page #" << page << endl;
+
         // Print the page table contents
         cout << "Before ---------------------------" << endl;
         page_table_print(pt);
         cout << "----------------------------------" << endl;
     }
-   
-
     // case for chnageing page to W
     int* bits = new int;
     int* framenumber = new int;
@@ -230,13 +236,18 @@ void page_fault_handler_custom_eviction(struct page_table *pt, int page) {
     {
         // std::cout << "Page is read only, changing to read/write" << endl;
         page_table_set_entry(pt, page, *framenumber, PROT_READ | PROT_WRITE);
-        auto it = std::find(no_write.begin(), no_write.end(), page);
-        if (it != no_write.end()) {
-            no_write.erase(it);
+        for (int i = 0; i < clock_entries.size(); i++) {
+            if (clock_entries[i].page == page) {
+                clock_entries[i].used = true;
+                break;
+            }
         }
+        
+        clock_index = (clock_index + 1) % num_frames;
+
     } else if (*bits != PROT_READ) { // if the page needs to be alloced in Physcial mem
-        // we need at add this to the page table 
         total_page_faults++;
+        // we need at add this to the page table 
         //check if frames are available
         bool already_allocated = false;
 
@@ -246,47 +257,29 @@ void page_fault_handler_custom_eviction(struct page_table *pt, int page) {
                 frames_used[i] = true;
                 disk_read(disk, page, page_table_get_physmem(pt) + (i * PAGE_SIZE));
                 total_disk_reads++;
-                no_write.push_back(page);
                 page_table_set_entry(pt, page, i, PROT_READ);
                 already_allocated = true;
+                clock_entries[i].page = page;
+                clock_entries[i].used = false;
                 break;
             }
         }
         if (!already_allocated) {
-            // No empty frames, we need to evict a page
-            vector<int> pages_in_use;
-            for (int i = 0; i < page_table_get_npages(pt); i++) {
-                int* frame = new int;
-                int* tempbits = new int;
-                page_table_get_entry(pt, i, frame, tempbits);
-                if (*tempbits != 0) {
-                    pages_in_use.push_back(i);
-                }
-                delete tempbits;
-                delete frame;
-            }
-            if (pages_in_use.empty()) {
-                cerr << "ERROR: No pages in use to evict" << endl;
-                exit(1);
-            }
-            int replaced_page_number;
-            if (no_write.empty()) {
-                int random_index = std::rand() % pages_in_use.size();
-                replaced_page_number = pages_in_use[random_index];
-            }
-            else {
-                // we have a page with only read permsions 
-                replaced_page_number = no_write.back();
-                no_write.pop_back();
-            }
-
             int* replaced_page = new int;
-            *replaced_page = replaced_page_number;
+
+            while (clock_entries[clock_index].used) {
+                clock_entries[clock_index].used = false;
+                clock_index = (clock_index + 1) % num_frames;
+            }
+            int replaced_page_temp = clock_entries[clock_index].page;
+            *replaced_page = replaced_page_temp;
+            
 
             int* replaced_page_bits = new int;
             int* replaced_frame = new int;
 
             page_table_get_entry(pt, *replaced_page, replaced_frame, replaced_page_bits);
+            
 
             if (*replaced_page_bits & PROT_WRITE){
                 // Replaced page is dirty, we need to write it to the disk before replacing
@@ -300,11 +293,11 @@ void page_fault_handler_custom_eviction(struct page_table *pt, int page) {
 
             page_table_set_entry(pt, page, *replaced_frame, PROT_READ);
             //frames_used[*replaced_frame] = true;
-            auto it = std::find(no_write.begin(), no_write.end(), *replaced_page);
-            if (it != no_write.end()) {
-                no_write.erase(it);
-            }
-            no_write.push_back(page);
+            
+            clock_entries[clock_index].page = page;
+            clock_entries[clock_index].used = false;
+            clock_index = (clock_index + 1) % num_frames;
+            
             delete replaced_page;
             delete replaced_frame;
             delete replaced_page_bits;
@@ -318,6 +311,7 @@ void page_fault_handler_custom_eviction(struct page_table *pt, int page) {
         page_table_print(pt);
         cout << "----------------------------------" << endl;
     }
+    
 }
 
 
@@ -325,12 +319,12 @@ void page_fault_handler_custom_eviction(struct page_table *pt, int page) {
 
 vector<int> mainfunc(int npages, int nframes, const char *algorithm, const char *program_name)
 {
-    std::cout << "USAGE\n";
-    std::cout << "npages: " << npages;
-    std::cout << " nframes: " << nframes ;
-    std::cout << " algorithm: " << algorithm ;
-    std::cout << " program: " << program_name ;
-    std::cout << endl;
+    // std::cout << "USAGE\n";
+    // std::cout << "npages: " << npages;
+    // std::cout << " nframes: " << nframes ;
+    // std::cout << " algorithm: " << algorithm ;
+    // std::cout << " program: " << program_name ;
+    // std::cout << endl;
 
     total_page_faults = 0;
     total_disk_writes = 0;
@@ -375,7 +369,6 @@ vector<int> mainfunc(int npages, int nframes, const char *algorithm, const char 
 
     // TODO - Any init needed
     frames_used.resize(nframes, false);
-    cout << "Frames used: " << frames_used.size() << endl;
     for (int i = 0; i < nframes; i++) {
         frames_used[i] = false;
     }
@@ -383,9 +376,13 @@ vector<int> mainfunc(int npages, int nframes, const char *algorithm, const char 
     while (!fifo_queue.empty()) {
         fifo_queue.pop();
     }
-    while (!no_write.empty()) {
-        no_write.pop_back();
+    for (int i = 0; i < nframes; i++) {
+        clock_entry entry;
+        entry.page = -1;
+        entry.used = false;
+        clock_entries.push_back(entry);
     }
+
 
     // Create a virtual disk
     disk = disk_open("myvirtualdisk", npages);
@@ -425,7 +422,7 @@ vector<int> mainfunc(int npages, int nframes, const char *algorithm, const char 
     std::cout << "Total disk writes: " << total_disk_writes << endl;
     std::cout << "Total disk reads: " << total_disk_reads << endl;
 
-    std::cout << "model: " << algorithm << endl;
+    std::cout << "algoithm: " << algorithm << endl;
     std::cout << "program: " << program_name << endl;
     std::cout << endl << endl;
     // Clean up the page table and disk
@@ -455,13 +452,14 @@ int main(int argc, char *argv[]) {
         //vector <int> page_to_frame_ratio = { 1, 2, 3, 5, 10};
         //vector <int> page_to_frame_ratio = { 2, 10};
 
-        vector <int> number_of_frames = {50, 20, 10, 5};
+        vector <int> number_of_frames = {3,4,5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100};
+        //vector <int> number_of_frames = {5, 10, 20, 50};
 
         vector <char*> algorithms = { "rand", "fifo", "custom" };
-        vector <const char*> programs = { "sort", "scan", "focus", "custom" };
-        std::ofstream file("output.txt");
+        vector <const char*> programs = { "sort", "scan", "focus" };
+        std::ofstream file("outputs/output.csv");
         if (file.is_open()) {
-            file << "npages, nframes, algorithm, program, pagefaults, diskwrites, diskreads" << endl;
+            file << "npages,nframes,algorithm,program,pagefaults,diskwrites,diskreads" << endl;
             file.flush();
             file.close();
         } else {
@@ -470,8 +468,9 @@ int main(int argc, char *argv[]) {
         vector<vector<std::string>> results; // strings so we can put it all in one vector. We can chnage it back to ints later 
         // formatt of results. [npages, nframes, algorithm, program, pagefaults, diskwrites, diskreads]
         npages = 100;
-        for (int i = 0; i < number_of_frames.size(); i++) {
-            num_frames = number_of_frames[i];
+        for (int i = 0; i < 100; i++) {
+            //num_frames = number_of_frames[i];
+            num_frames = i;
             if (num_frames < 2) {
                 continue;
             }
@@ -490,9 +489,9 @@ int main(int argc, char *argv[]) {
                         std::to_string(result[2])
                     };
                     results.push_back(result_string);
-                    std::ofstream file("output.txt", std::ios::app);
+                    std::ofstream file("outputs/output.csv", std::ios::app);
                     if (file.is_open()) {
-                        file << npages << ", " << num_frames << ", " << algorithm << ", " << program_name << ", " << result[0] << ", " << result[1] << ", " << result[2] << endl;
+                        file << npages << "," << num_frames << "," << algorithm << "," << program_name << "," << result[0] << "," << result[1] << "," << result[2] << endl;
                         file.flush();
                         file.close();
                     } else {
@@ -501,26 +500,12 @@ int main(int argc, char *argv[]) {
                 }
             }            
         }
-        
-        std::cout << "__________RESULT__________" <<endl;
-        for (int i = 0; i < results.size(); i++) {
-            for (int j = 0; j < results[i].size(); j++) {
-                std::cout << results[i][j] << " ";
-            }
-            std::cout << endl;
-        }
-        //write result to a file
-        std::ofstream outfile("results.txt");
-        if (outfile.is_open()) {
-            for (int i = 0; i < results.size(); i++) {
-                for (int j = 0; j < results[i].size(); j++) {
-                    outfile << results[i][j] << ", ";
-                }
-                outfile << endl;
-            }
-            outfile.close();
-        } else {
-            std::cout << "Unable to open file";
-        }
+        // std::cout << "__________RESULT__________" <<endl;
+        // for (int i = 0; i < results.size(); i++) {
+        //     for (int j = 0; j < results[i].size(); j++) {
+        //         std::cout << results[i][j] << " ";
+        //     }
+        //     std::cout << endl;
+        // }
     }
 }
