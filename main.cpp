@@ -449,10 +449,9 @@ int main(int argc, char *argv[]) {
         printflag = false;
         std::cout << "__________BATCH MODE__________" <<endl;
 
-        //vector <int> page_to_frame_ratio = { 1, 2, 3, 5, 10};
-        //vector <int> page_to_frame_ratio = { 2, 10};
+        
 
-        vector <int> number_of_frames = {3,4,5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100};
+        //vector <int> number_of_frames = {3,4,5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100};
         //vector <int> number_of_frames = {5, 10, 20, 50};
 
         vector <char*> algorithms = { "rand", "fifo", "custom" };
@@ -468,7 +467,7 @@ int main(int argc, char *argv[]) {
         vector<vector<std::string>> results; // strings so we can put it all in one vector. We can chnage it back to ints later 
         // formatt of results. [npages, nframes, algorithm, program, pagefaults, diskwrites, diskreads]
         npages = 100;
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 100; i += 5) {
             //num_frames = number_of_frames[i];
             num_frames = i;
             if (num_frames < 2) {
@@ -500,12 +499,13 @@ int main(int argc, char *argv[]) {
                 }
             }            
         }
-        // std::cout << "__________RESULT__________" <<endl;
-        // for (int i = 0; i < results.size(); i++) {
-        //     for (int j = 0; j < results[i].size(); j++) {
-        //         std::cout << results[i][j] << " ";
-        //     }
-        //     std::cout << endl;
-        // }
+        // updates the graphs when finished 
+        int result = system("python3 graph.py");
+
+        if (result == 0) {
+            std::cout << "Graph script ran successfully!\n";
+        } else {
+            std::cerr << "Graph script failed to run.\n";
+        }
     }
 }

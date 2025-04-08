@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import os
 
 # Load the data
-df = pd.read_csv("output.csv", usecols=range(7))  # Only load the 7 correct columns
+df = pd.read_csv("outputs/output.csv", usecols=range(7))  # Only load the 7 correct columns
 
 # Programs and metrics to plot
 programs = ["focus", "scan", "sort"]
@@ -33,7 +33,7 @@ for program in programs:
             x="nframes",
             y=metric,
             hue="algorithm",
-            marker=False
+            marker="o"
         )
         plt.title(metric.capitalize())
         plt.xlabel("Frames")
