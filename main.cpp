@@ -80,11 +80,13 @@ void page_fault_handler_random_eviction(struct page_table *pt, int page) {
             vector<int> pages_in_use;
             for (int i = 0; i < page_table_get_npages(pt); i++) {
                 int* frame = new int;
-                int* bits = new int;
-                page_table_get_entry(pt, i, frame, bits);
-                if (*bits != 0) {
+                int* tempbits = new int;
+                page_table_get_entry(pt, i, frame, tempbits);
+                if (*tempbits != 0) {
                     pages_in_use.push_back(i);
                 }
+                delete tempbits;
+                delete frame;
             }
             if (pages_in_use.empty()) {
                 cerr << "ERROR: No pages in use to evict" << endl;
@@ -112,8 +114,13 @@ void page_fault_handler_random_eviction(struct page_table *pt, int page) {
             page_table_set_entry(pt, *replaced_page, *framenumber, PROT_NONE);
             page_table_set_entry(pt, page, *replaced_frame, PROT_READ);
             //frames_used[*replaced_frame] = true;
+            delete replaced_page;
+            delete replaced_frame;
+            delete replaced_page_bits;
         }
     }
+    delete bits;
+    delete framenumber;
     if (printflag) {
         // Print the page table contents
         cout << "After ----------------------------" << endl;
@@ -187,8 +194,13 @@ void page_fault_handler_fifo_eviction(struct page_table *pt, int page) {
             
             
             fifo_queue.push(page);
+            delete replaced_page;
+            delete replaced_frame;
+            delete replaced_page_bits;
         }
     }
+    delete bits;
+    delete framenumber;
     if (printflag) {
         // Print the page table contents
         cout << "After ----------------------------" << endl;
@@ -245,11 +257,13 @@ void page_fault_handler_custom_eviction(struct page_table *pt, int page) {
             vector<int> pages_in_use;
             for (int i = 0; i < page_table_get_npages(pt); i++) {
                 int* frame = new int;
-                int* bits = new int;
-                page_table_get_entry(pt, i, frame, bits);
-                if (*bits != 0) {
+                int* tempbits = new int;
+                page_table_get_entry(pt, i, frame, tempbits);
+                if (*tempbits != 0) {
                     pages_in_use.push_back(i);
                 }
+                delete tempbits;
+                delete frame;
             }
             if (pages_in_use.empty()) {
                 cerr << "ERROR: No pages in use to evict" << endl;
@@ -291,8 +305,13 @@ void page_fault_handler_custom_eviction(struct page_table *pt, int page) {
                 no_write.erase(it);
             }
             no_write.push_back(page);
+            delete replaced_page;
+            delete replaced_frame;
+            delete replaced_page_bits;
         }
     }
+    delete bits;
+    delete framenumber;
     if (printflag) {
         // Print the page table contents
         cout << "After ----------------------------" << endl;
@@ -436,11 +455,18 @@ int main(int argc, char *argv[]) {
         //vector <int> page_to_frame_ratio = { 1, 2, 3, 5, 10};
         //vector <int> page_to_frame_ratio = { 2, 10};
 
-        vector <int> number_of_frames = {2, 5, 10, 20};
+        vector <int> number_of_frames = {50, 20, 10, 5};
 
-        vector <const char*> algorithms = { "rand", "fifo", "custom" };
+        vector <char*> algorithms = { "rand", "fifo", "custom" };
         vector <const char*> programs = { "sort", "scan", "focus", "custom" };
-
+        std::ofstream file("output.txt");
+        if (file.is_open()) {
+            file << "npages, nframes, algorithm, program, pagefaults, diskwrites, diskreads" << endl;
+            file.flush();
+            file.close();
+        } else {
+            std::cout << "Unable to open file";
+        }
         vector<vector<std::string>> results; // strings so we can put it all in one vector. We can chnage it back to ints later 
         // formatt of results. [npages, nframes, algorithm, program, pagefaults, diskwrites, diskreads]
         npages = 100;
@@ -449,10 +475,10 @@ int main(int argc, char *argv[]) {
             if (num_frames < 2) {
                 continue;
             }
-            for (int j = 0; j < algorithms.size(); j++) {
-                const char *algorithm = algorithms[j];
-                for (int k = 0; k < programs.size(); k++) {
-                    const char *program_name = programs[k];
+            for (int j = 0; j < programs.size(); j++) {
+                const char *program_name = programs[j];
+                for (int k = 0; k < algorithms.size(); k++) {
+                    const char *algorithm = algorithms[k];
                     vector<int>result = mainfunc(npages, num_frames, algorithm, program_name);
                     vector<string> result_string = {
                         std::to_string(npages),
@@ -463,6 +489,15 @@ int main(int argc, char *argv[]) {
                         std::to_string(result[1]),
                         std::to_string(result[2])
                     };
+                    results.push_back(result_string);
+                    std::ofstream file("output.txt", std::ios::app);
+                    if (file.is_open()) {
+                        file << npages << ", " << num_frames << ", " << algorithm << ", " << program_name << ", " << result[0] << ", " << result[1] << ", " << result[2] << endl;
+                        file.flush();
+                        file.close();
+                    } else {
+                        std::cout << "Unable to open file";
+                    }
                 }
             }            
         }

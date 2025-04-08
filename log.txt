@@ -1,18 +1,304 @@
 __________BATCH MODE__________
 USAGE
-npages: 100 nframes: 2 algorithm: rand program: sort
-Frames used: 2
-Sort Successful: Result = -310054
-Total page faults: 2644
-Total disk writes: 1112
-Total disk reads: 2644
+npages: 100 nframes: 50 algorithm: rand program: sort
+Frames used: 50
+Sort Successful: Result = -310918
+Total page faults: 516
+Total disk writes: 367
+Total disk reads: 516
 model: rand
 program: sort
 
 
 USAGE
-npages: 100 nframes: 2 algorithm: rand program: scan
-Frames used: 2
+npages: 100 nframes: 50 algorithm: fifo program: sort
+Frames used: 50
+Sort Successful: Result = -311357
+Total page faults: 500
+Total disk writes: 301
+Total disk reads: 500
+model: fifo
+program: sort
+
+
+USAGE
+npages: 100 nframes: 50 algorithm: custom program: sort
+Frames used: 50
+Sort Successful: Result = -310918
+Total page faults: 126644
+Total disk writes: 292
+Total disk reads: 126644
+model: custom
+program: sort
+
+
+USAGE
+npages: 100 nframes: 50 algorithm: rand program: scan
+Frames used: 50
+Scan Successful: Result = 522240000
+Total page faults: 898
+Total disk writes: 100
+Total disk reads: 898
+model: rand
+program: scan
+
+
+USAGE
+npages: 100 nframes: 50 algorithm: fifo program: scan
+Frames used: 50
+Scan Successful: Result = 522240000
+Total page faults: 1100
+Total disk writes: 100
+Total disk reads: 1100
+model: fifo
+program: scan
+
+
+USAGE
+npages: 100 nframes: 50 algorithm: custom program: scan
+Frames used: 50
+Scan Successful: Result = 522240000
+Total page faults: 610
+Total disk writes: 51
+Total disk reads: 610
+model: custom
+program: scan
+
+
+USAGE
+npages: 100 nframes: 50 algorithm: rand program: focus
+Frames used: 50
+Focus Successful: Result = -1448
+Total page faults: 233
+Total disk writes: 147
+Total disk reads: 233
+model: rand
+program: focus
+
+
+USAGE
+npages: 100 nframes: 50 algorithm: fifo program: focus
+Frames used: 50
+Focus Successful: Result = -2533
+Total page faults: 236
+Total disk writes: 153
+Total disk reads: 236
+model: fifo
+program: focus
+
+
+USAGE
+npages: 100 nframes: 50 algorithm: custom program: focus
+Frames used: 50
+Focus Successful: Result = -1448
+Total page faults: 207
+Total disk writes: 107
+Total disk reads: 207
+model: custom
+program: focus
+
+
+USAGE
+npages: 100 nframes: 50 algorithm: rand program: custom
+Frames used: 50
+Custom Successful: Result = 522240000
+Total page faults: 903
+Total disk writes: 111
+Total disk reads: 903
+model: rand
+program: custom
+
+
+USAGE
+npages: 100 nframes: 50 algorithm: fifo program: custom
+Frames used: 50
+Custom Successful: Result = 522240000
+Total page faults: 1110
+Total disk writes: 119
+Total disk reads: 1110
+model: fifo
+program: custom
+
+
+USAGE
+npages: 100 nframes: 50 algorithm: custom program: custom
+Frames used: 50
+Custom Successful: Result = 522240000
+Total page faults: 611
+Total disk writes: 52
+Total disk reads: 611
+model: custom
+program: custom
+
+
+USAGE
+npages: 100 nframes: 20 algorithm: rand program: sort
+Frames used: 20
+Sort Successful: Result = -311055
+Total page faults: 837
+Total disk writes: 538
+Total disk reads: 837
+model: rand
+program: sort
+
+
+USAGE
+npages: 100 nframes: 20 algorithm: fifo program: sort
+Frames used: 20
+Sort Successful: Result = -311357
+Total page faults: 803
+Total disk writes: 507
+Total disk reads: 803
+model: fifo
+program: sort
+
+
+USAGE
+npages: 100 nframes: 20 algorithm: custom program: sort
+Frames used: 20
+Sort Successful: Result = -311055
+Total page faults: 823416
+Total disk writes: 491
+Total disk reads: 823416
+model: custom
+program: sort
+
+
+USAGE
+npages: 100 nframes: 20 algorithm: rand program: scan
+Frames used: 20
+Scan Successful: Result = 522240000
+Total page faults: 1092
+Total disk writes: 100
+Total disk reads: 1092
+model: rand
+program: scan
+
+
+USAGE
+npages: 100 nframes: 20 algorithm: fifo program: scan
+Frames used: 20
+Scan Successful: Result = 522240000
+Total page faults: 1100
+Total disk writes: 100
+Total disk reads: 1100
+model: fifo
+program: scan
+
+
+USAGE
+npages: 100 nframes: 20 algorithm: custom program: scan
+Frames used: 20
+Scan Successful: Result = 522240000
+Total page faults: 910
+Total disk writes: 81
+Total disk reads: 910
+model: custom
+program: scan
+
+
+USAGE
+npages: 100 nframes: 20 algorithm: rand program: focus
+Frames used: 20
+Focus Successful: Result = -8015
+Total page faults: 273
+Total disk writes: 178
+Total disk reads: 273
+model: rand
+program: focus
+
+
+USAGE
+npages: 100 nframes: 20 algorithm: fifo program: focus
+Frames used: 20
+Focus Successful: Result = -2533
+Total page faults: 275
+Total disk writes: 181
+Total disk reads: 275
+model: fifo
+program: focus
+
+
+USAGE
+npages: 100 nframes: 20 algorithm: custom program: focus
+Frames used: 20
+Focus Successful: Result = -8015
+Total page faults: 260
+Total disk writes: 160
+Total disk reads: 260
+model: custom
+program: focus
+
+
+USAGE
+npages: 100 nframes: 20 algorithm: rand program: custom
+Frames used: 20
+Custom Successful: Result = 522240000
+Total page faults: 1146
+Total disk writes: 156
+Total disk reads: 1146
+model: rand
+program: custom
+
+
+USAGE
+npages: 100 nframes: 20 algorithm: fifo program: custom
+Frames used: 20
+Custom Successful: Result = 522240000
+Total page faults: 1140
+Total disk writes: 149
+Total disk reads: 1140
+model: fifo
+program: custom
+
+
+USAGE
+npages: 100 nframes: 20 algorithm: custom program: custom
+Frames used: 20
+Custom Successful: Result = 522240000
+Total page faults: 911
+Total disk writes: 82
+Total disk reads: 911
+model: custom
+program: custom
+
+
+USAGE
+npages: 100 nframes: 10 algorithm: rand program: sort
+Frames used: 10
+Sort Successful: Result = -310959
+Total page faults: 1086
+Total disk writes: 667
+Total disk reads: 1086
+model: rand
+program: sort
+
+
+USAGE
+npages: 100 nframes: 10 algorithm: fifo program: sort
+Frames used: 10
+Sort Successful: Result = -311357
+Total page faults: 1015
+Total disk writes: 619
+Total disk reads: 1015
+model: fifo
+program: sort
+
+
+USAGE
+npages: 100 nframes: 10 algorithm: custom program: sort
+Frames used: 10
+Sort Successful: Result = -310959
+Total page faults: 1536985
+Total disk writes: 611
+Total disk reads: 1536985
+model: custom
+program: sort
+
+
+USAGE
+npages: 100 nframes: 10 algorithm: rand program: scan
+Frames used: 10
 Scan Successful: Result = 522240000
 Total page faults: 1100
 Total disk writes: 100
@@ -22,9 +308,163 @@ program: scan
 
 
 USAGE
-npages: 100 nframes: 2 algorithm: rand program: focus
-Frames used: 2
-Focus Successful: Result = 3457
+npages: 100 nframes: 10 algorithm: fifo program: scan
+Frames used: 10
+Scan Successful: Result = 522240000
+Total page faults: 1100
+Total disk writes: 100
+Total disk reads: 1100
+model: fifo
+program: scan
+
+
+USAGE
+npages: 100 nframes: 10 algorithm: custom program: scan
+Frames used: 10
+Scan Successful: Result = 522240000
+Total page faults: 1010
+Total disk writes: 91
+Total disk reads: 1010
+model: custom
+program: scan
+
+
+USAGE
+npages: 100 nframes: 10 algorithm: rand program: focus
+Frames used: 10
+Focus Successful: Result = -5088
+Total page faults: 291
+Total disk writes: 191
+Total disk reads: 291
+model: rand
+program: focus
+
+
+USAGE
+npages: 100 nframes: 10 algorithm: fifo program: focus
+Frames used: 10
+Focus Successful: Result = -2533
+Total page faults: 288
+Total disk writes: 189
+Total disk reads: 288
+model: fifo
+program: focus
+
+
+USAGE
+npages: 100 nframes: 10 algorithm: custom program: focus
+Frames used: 10
+Focus Successful: Result = -5088
+Total page faults: 282
+Total disk writes: 182
+Total disk reads: 282
+model: custom
+program: focus
+
+
+USAGE
+npages: 100 nframes: 10 algorithm: rand program: custom
+Frames used: 10
+Custom Successful: Result = 522240000
+Total page faults: 1200
+Total disk writes: 203
+Total disk reads: 1200
+model: rand
+program: custom
+
+
+USAGE
+npages: 100 nframes: 10 algorithm: fifo program: custom
+Frames used: 10
+Custom Successful: Result = 522240000
+Total page faults: 1190
+Total disk writes: 199
+Total disk reads: 1190
+model: fifo
+program: custom
+
+
+USAGE
+npages: 100 nframes: 10 algorithm: custom program: custom
+Frames used: 10
+Custom Successful: Result = 522240000
+Total page faults: 1011
+Total disk writes: 92
+Total disk reads: 1011
+model: custom
+program: custom
+
+
+USAGE
+npages: 100 nframes: 5 algorithm: rand program: sort
+Frames used: 5
+Sort Successful: Result = -311509
+Total page faults: 1444
+Total disk writes: 794
+Total disk reads: 1444
+model: rand
+program: sort
+
+
+USAGE
+npages: 100 nframes: 5 algorithm: fifo program: sort
+Frames used: 5
+Sort Successful: Result = -311357
+Total page faults: 1247
+Total disk writes: 747
+Total disk reads: 1247
+model: fifo
+program: sort
+
+
+USAGE
+npages: 100 nframes: 5 algorithm: custom program: sort
+Frames used: 5
+Sort Successful: Result = -311509
+Total page faults: 2500103
+Total disk writes: 751
+Total disk reads: 2500103
+model: custom
+program: sort
+
+
+USAGE
+npages: 100 nframes: 5 algorithm: rand program: scan
+Frames used: 5
+Scan Successful: Result = 522240000
+Total page faults: 1100
+Total disk writes: 100
+Total disk reads: 1100
+model: rand
+program: scan
+
+
+USAGE
+npages: 100 nframes: 5 algorithm: fifo program: scan
+Frames used: 5
+Scan Successful: Result = 522240000
+Total page faults: 1100
+Total disk writes: 100
+Total disk reads: 1100
+model: fifo
+program: scan
+
+
+USAGE
+npages: 100 nframes: 5 algorithm: custom program: scan
+Frames used: 5
+Scan Successful: Result = 522240000
+Total page faults: 1060
+Total disk writes: 96
+Total disk reads: 1060
+model: custom
+program: scan
+
+
+USAGE
+npages: 100 nframes: 5 algorithm: rand program: focus
+Frames used: 5
+Focus Successful: Result = -4024
 Total page faults: 298
 Total disk writes: 198
 Total disk reads: 298
@@ -33,60 +473,106 @@ program: focus
 
 
 USAGE
-npages: 100 nframes: 2 algorithm: rand program: custom
-Frames used: 2
-Custom Successful: Result = 522240000
-Total page faults: 2106
-Total disk writes: 645
-Total disk reads: 2106
-model: rand
-program: custom
-
-
-USAGE
-npages: 100 nframes: 2 algorithm: fifo program: sort
-Frames used: 2
-Sort Successful: Result = -311357
-Total page faults: 2111
-Total disk writes: 1075
-Total disk reads: 2111
-model: fifo
-program: sort
-
-
-USAGE
-npages: 100 nframes: 2 algorithm: fifo program: scan
-Frames used: 2
-Scan Successful: Result = 522240000
-Total page faults: 1100
-Total disk writes: 100
-Total disk reads: 1100
-model: fifo
-program: scan
-
-
-USAGE
-npages: 100 nframes: 2 algorithm: fifo program: focus
-Frames used: 2
+npages: 100 nframes: 5 algorithm: fifo program: focus
+Frames used: 5
 Focus Successful: Result = -2533
-Total page faults: 299
-Total disk writes: 199
-Total disk reads: 299
+Total page faults: 295
+Total disk writes: 196
+Total disk reads: 295
 model: fifo
 program: focus
 
 
 USAGE
-npages: 100 nframes: 2 algorithm: fifo program: custom
-Frames used: 2
+npages: 100 nframes: 5 algorithm: custom program: focus
+Frames used: 5
+Focus Successful: Result = -4024
+Total page faults: 294
+Total disk writes: 194
+Total disk reads: 294
+model: custom
+program: focus
+
+
+USAGE
+npages: 100 nframes: 5 algorithm: rand program: custom
+Frames used: 5
 Custom Successful: Result = 522240000
-Total page faults: 1586
-Total disk writes: 595
-Total disk reads: 1586
+Total page faults: 1347
+Total disk writes: 314
+Total disk reads: 1347
+model: rand
+program: custom
+
+
+USAGE
+npages: 100 nframes: 5 algorithm: fifo program: custom
+Frames used: 5
+Custom Successful: Result = 522240000
+Total page faults: 1289
+Total disk writes: 298
+Total disk reads: 1289
 model: fifo
 program: custom
 
 
 USAGE
-npages: 100 nframes: 2 algorithm: custom program: sort
-Frames used: 2
+npages: 100 nframes: 5 algorithm: custom program: custom
+Frames used: 5
+Custom Successful: Result = 522240000
+Total page faults: 1061
+Total disk writes: 97
+Total disk reads: 1061
+model: custom
+program: custom
+
+
+__________RESULT__________
+100 50 rand sort 516 367 516 
+100 50 fifo sort 500 301 500 
+100 50 custom sort 126644 292 126644 
+100 50 rand scan 898 100 898 
+100 50 fifo scan 1100 100 1100 
+100 50 custom scan 610 51 610 
+100 50 rand focus 233 147 233 
+100 50 fifo focus 236 153 236 
+100 50 custom focus 207 107 207 
+100 50 rand custom 903 111 903 
+100 50 fifo custom 1110 119 1110 
+100 50 custom custom 611 52 611 
+100 20 rand sort 837 538 837 
+100 20 fifo sort 803 507 803 
+100 20 custom sort 823416 491 823416 
+100 20 rand scan 1092 100 1092 
+100 20 fifo scan 1100 100 1100 
+100 20 custom scan 910 81 910 
+100 20 rand focus 273 178 273 
+100 20 fifo focus 275 181 275 
+100 20 custom focus 260 160 260 
+100 20 rand custom 1146 156 1146 
+100 20 fifo custom 1140 149 1140 
+100 20 custom custom 911 82 911 
+100 10 rand sort 1086 667 1086 
+100 10 fifo sort 1015 619 1015 
+100 10 custom sort 1536985 611 1536985 
+100 10 rand scan 1100 100 1100 
+100 10 fifo scan 1100 100 1100 
+100 10 custom scan 1010 91 1010 
+100 10 rand focus 291 191 291 
+100 10 fifo focus 288 189 288 
+100 10 custom focus 282 182 282 
+100 10 rand custom 1200 203 1200 
+100 10 fifo custom 1190 199 1190 
+100 10 custom custom 1011 92 1011 
+100 5 rand sort 1444 794 1444 
+100 5 fifo sort 1247 747 1247 
+100 5 custom sort 2500103 751 2500103 
+100 5 rand scan 1100 100 1100 
+100 5 fifo scan 1100 100 1100 
+100 5 custom scan 1060 96 1060 
+100 5 rand focus 298 198 298 
+100 5 fifo focus 295 196 295 
+100 5 custom focus 294 194 294 
+100 5 rand custom 1347 314 1347 
+100 5 fifo custom 1289 298 1289 
+100 5 custom custom 1061 97 1061 
